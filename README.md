@@ -59,8 +59,8 @@ Metrolytics provides statistics on 15,000 different cities in the United States 
 -   Explanatory Variable 5
 
 ### Data Sources
-🚫  Add to or delete souce links as needed for your project
 
+<img src = 'https://raw.githubusercontent.com/Lambda-School-Labs/city-data-comparison-ds/master/images/data%20source%20map.PNG'>
 
 -   [Census Bureau] (https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/City_Naming.ipynb)
 -   [Zillow Housing] (https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/zillowData_clean.ipynb)
