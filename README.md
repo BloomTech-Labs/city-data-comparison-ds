@@ -66,10 +66,10 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 🚫  Add to or delete souce links as needed for your project
 
 
--   [Source 1] (🚫add link to python notebook here)
--   [Source 2] (🚫add link to python notebook here)
--   [Source 3] (🚫add link to python notebook here)
--   [Source 4] (🚫add link to python notebook here)
+-   [Census Bureau] (https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/City_Naming.ipynb)
+-   [Zillow Housing] (https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/zillowData_clean.ipynb)
+-   [Longitude & Latitude] (https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Get_Lat_Lng.ipynb)
+-   [Population Growth] (https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/PopulationGrowth.ipynb)
 -   [Source 5] (🚫add link to python notebook here)
 
 ### Python Notebooks
