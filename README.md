@@ -40,7 +40,7 @@ Metrolytics provides statistics on 15,000 different cities in the United States 
 
 🚫  delete if front end is not applicable to your project
 
-1️⃣ [Deployed Front End](🚫add link to deployed app here)
+1️⃣ [Deployed Front End](https://master.d1td9ufw3xylcx.amplifyapp.com/)
 
 ### Tech Stack
 
