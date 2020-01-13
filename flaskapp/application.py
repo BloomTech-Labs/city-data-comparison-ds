@@ -5,7 +5,7 @@ application = app = Flask(__name__)
 
 
 # Connect to MongoDB
-client =  MongoClient("mongodb+srv://citrisuser:mattlukescott1@cluster0-mpf7i.mongodb.net/test?retryWrites=true&w=majority")
+client =  MongoClient("")
 db = client['city-data']
 collection = db['Census-Data']
 
