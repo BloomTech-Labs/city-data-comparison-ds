@@ -5,18 +5,20 @@ application = app = Flask(__name__)
 
 
 # Connect to MongoDB
-client =  MongoClient("")
+client =  MongoClient("mongodb+srv://citrisuser:mattlukescott1@cluster0-mpf7i.mongodb.net/test?retryWrites=true&w=majority")
 db = client['city-data']
 collection = db['Census-Data']
 
 
 def querydata(city_state):
 
-    state = city_state.split('-')[0]
-    city = city_state.split('-')[1]
+    state = city_state
     myquery = {"State": state} #TODO add query by state & city 
     docs = collection.find(myquery)
-    return docs
+    data = []
+    for x in docs:
+        data.append(x)
+    return str(data)
 
 
 # Dynamic End Point
@@ -26,7 +28,7 @@ def hello(city_state):
     # TODO Make calls to mongoDB to retrieve city data
 
     # TODO return city data
-    return(city_state)
+    return(querydata(city_state))
 
 if __name__ == "__main__":
     app.run()
