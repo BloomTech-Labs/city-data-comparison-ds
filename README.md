@@ -36,7 +36,13 @@ Metrolytics provides statistics on 15,000 different cities in the United States 
 
 ### Tech Stack
 
-🚫 List all of the languages, frameworks, services, etc used here.
+- Python
+- Jupyter Notebooks
+- Pandas Python Library
+- Plotly Python Library
+- Mongo DB
+- AWS
+
 
 ### 2️⃣ Predictions
 
