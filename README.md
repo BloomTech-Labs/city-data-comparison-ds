@@ -4,9 +4,9 @@
 
 🚫 Each student has a required minimum number of meaningful PRs each week per the rubric.  Contributing to docs does NOT count as a PR to meet your weekly requirements.
 
-# 1️⃣ Metrolytics
+# 1️⃣ Citrics
 
-You can find the project at [Metrolytics](🚫copy and paste URL here).
+You can find the project at [Citrics](https://master.d1td9ufw3xylcx.amplifyapp.com/).
 
 ## 5️⃣ Contributors
 
