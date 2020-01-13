@@ -2,17 +2,17 @@ from flask import Flask
 from pymongo import MongoClient
 application = app = Flask(__name__)
 
-
-
 # Connect to MongoDB
-client =  MongoClient("mongodb+srv://citrisuser:mattlukescott1@cluster0-mpf7i.mongodb.net/test?retryWrites=true&w=majority")
+client =  MongoClient("")
 db = client['city-data']
 collection = db['Census-Data']
 
 
 def querydata(city_state):
-
-    state = city_state
+    """
+    Note: will query base on id rather than state and city name
+    """
+    state = city_state.split
     myquery = {"State": state} #TODO add query by state & city 
     docs = collection.find(myquery)
     data = []
