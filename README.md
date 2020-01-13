@@ -38,7 +38,6 @@ You can find the project at [Citrics](https://master.d1td9ufw3xylcx.amplifyapp.c
 
 Metrolytics provides statistics on 15,000 different cities in the United States that are available for viewing. These statistics include information about housing prices, employment, lifestyle and much more.
 
-🚫  delete if front end is not applicable to your project
 
 1️⃣ [Deployed Front End](https://master.d1td9ufw3xylcx.amplifyapp.com/)
 
