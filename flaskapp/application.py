@@ -5,30 +5,27 @@ application = app = Flask(__name__)
 # Connect to MongoDB
 client =  MongoClient("")
 db = client['city-data']
-collection = db['Census-Data']
+collection = db['alldata']
 
 
-def querydata(city_state):
+def querydata(_id):
     """
-    Note: will query base on id rather than state and city name
+    Query for the id and formats the query
     """
     state = city_state.split
-    myquery = {"State": state} #TODO add query by state & city 
-    docs = collection.find(myquery)
-    data = []
-    for x in docs:
-        data.append(x)
-    return str(data)
+    myquery = {"_id": state}
+    docs = collection.find_one(myquery)
+    return str(docs)
 
 
 # Dynamic End Point
-@app.route("/<city_state>")
+@app.route("/<_id>")
 def hello(city_state):
     
     # TODO Make calls to mongoDB to retrieve city data
 
     # TODO return city data
-    return(querydata(city_state))
+    return(querydata(_id))
 
 if __name__ == "__main__":
     app.run()
