@@ -1,33 +1,28 @@
-from flask import Flask
-from flask import jsonify as json 
-from pymongo import MongoClient
+from flask import Flask, jsonify
+from decouple import config
+from flask_pymongo import PyMongo
+
+
 application = app = Flask(__name__)
 
 # Connect to MongoDB
-client =  MongoClient("")
-db = client['citydata']
-collection = db['alldata']
 
-
-def querydata(id):
-    """
-    Query for the id and formats the query
-    """
-    
-    myquery = {"_id": int(id)}
-    docs = collection.find_one(myquery)
-
-    return docs
-
+app.config['MONGO_URI'] = config('MONGO_URI')
+mongo = PyMongo(app)
+ACCESS_KEY = config('ACCESS_KEY')
 
 # Dynamic End Point
-@app.route("/<id>")
-def hello(id):
+@app.route(f"/")
+def home():
 
-    result = querydata(id)
-    return json(result)
+  return 'hello'
+
+
+@app.route(f"/{ACCESS_KEY}/citydata/<num>")
+def hello(num):
+  doc = mongo.db.alldata.find_one({'_id':int(num)})
+  return jsonify(doc)
+
 
 if __name__ == "__main__":
-    app.run()
-
-
+    app.run(debug=True)

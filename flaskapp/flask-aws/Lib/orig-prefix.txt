@@ -1,1 +1,0 @@
-c:\users\gaming pc\anaconda3\envs\flask
