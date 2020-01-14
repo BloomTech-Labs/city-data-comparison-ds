@@ -1,6 +1,7 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request, render_template
 from decouple import config
 from flask_pymongo import PyMongo
+from flask_cors import CORS
 
 
 application = app = Flask(__name__)
@@ -10,12 +11,12 @@ application = app = Flask(__name__)
 app.config['MONGO_URI'] = config('MONGO_URI')
 mongo = PyMongo(app)
 ACCESS_KEY = config('ACCESS_KEY')
-
+CORS(app)
 # Dynamic End Point
 @app.route(f"/")
 def home():
-
-  return 'hello'
+    vals = ['One', 'two', 'three']
+    return render_template('home.html', vals = vals)
 
 
 @app.route(f"/{ACCESS_KEY}/citydata/<num>")
