@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from decouple import config
 from flask_pymongo import PyMongo
 from flask_cors import CORS
@@ -19,7 +19,7 @@ CORS(app)
 @app.route(f"/")
 def home():
 
-    return 'hello'
+    return render_template('start.html')
 
 
 @app.route(f"/{ACCESS_KEY}/citydata/<num>")

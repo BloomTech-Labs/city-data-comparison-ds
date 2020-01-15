@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Citrics API Docs</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="static/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="static/assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="static/assets/plugins/elegant_font/css/style.css">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="static/assets/css/styles.css">
+
+</head>
+
+<body class="body-green">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">Citrics</span><span class="text-bold">API</span>
+                        </a>
+                    </h1>
+
+                </div><!--//branding-->
+
+                <ol class="breadcrumb">
+
+                </ol>
+
+                <div class="top-search-box">
+	                 <form class="form-inline search-form justify-content-center" action="" method="get">
+
+
+
+			        </form>
+                </div>
+
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> API‌ Documentation</h1>
+                    <div class="meta"><i class="far fa-clock"></i> Last updated: Jan 15th, 2020</div>
+                </div><!--//doc-header-->
+                <div class="doc-body row">
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+                            <section id="download-section" class="doc-section">
+                                <h2 class="section-title">Overview</h2>
+                                <div class="section-block">
+                                    <p>The Citrics API‌ offers a broad range of city-related data for nearly every single city in the United States. Our primary source of data comes from the Census Social Characteristics, Economic Characteristics, Housing Characteristics, and Demographic Characteristics datasets. The following documentation will help you better understand what data is available and how to work with each endpoint.
+                                    </p>
+                                    <a href="https://github.com/Lambda-School-Labs/city-data-comparison-ds" class="btn btn-green" target="_blank"><i class="fab fa-github"></i> View Github</a>
+                                </div>
+                            </section><!--//doc-section-->
+                            <section id="installation-section" class="doc-section">
+                                <h2 class="section-title">Endpoints</h2>
+                                <div id="step1"  class="section-block">
+                                    <h3 class="block-title">City Data by ID</h3>
+                                    <p>The City Data by ID endpoint returns all city data based on the Citrics unique ID. </p>
+                                    <div class="code-block">
+                                        <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/citydata/&lt;City_ID&gt;</code></pre>
+                                    </div>
+                                    <h4>Data returned:</h4>
+                                    <div class="code-block">
+                                        <pre><code class="language-git">All City Data</code></pre>
+                                    </div>
+                                    <hr><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="step2"  class="section-block">
+                                    <h3 class="block-title">City Name Search (for misspelled queries)</h3>
+                                    <p>This endpoint receives text and matches the text to similarly spelled cities. The main purpose of this endpoint is to receive a city ID’s if a user spells the city wrong. This endpoint returns at most five similarly spelled cities along with the Citrics ID which can be used for “citydata” endpoint. </p>
+                                    <div class="code-block">
+                                        <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/matchcity/&lt;City_name_and_State_Name&gt;</code></pre>
+                                    </div>
+                                    <h4>Data returned:</h4>
+                                    <div class="code-block">
+                                        <pre><code class="language-css">{
+  "Salt Lake City, UT": {
+    "ID": 17929,
+    "lat": 40.7774,
+    "lng": -111.93,
+    "population": 195701,
+    "st": "UT",
+    "state": "Utah"
+  }
+  ....
+}</code></pre>
+<!--//section-block-->
+                            </section><!--//doc-section-->
+
+
+                            <section id="tables-section" class="doc-section">
+                                <h2 class="section-title">Data Points</h2>
+                                <div class="section-block">
+                                    <p>This is a list of all the available data points for the Citric API.
+                                    </p>
+                                </div>
+                                <div class="section-block"><!--//table-responsive-->
+                                    <h6>All City Data</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Key</th>
+                                                    <th>Info</th>
+                                                    <th>Nested Keys</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">_id</th>
+                                                    <td>Citrics assigned ID for city</td>
+                                                    <td>None</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">name_with_com</th>
+                                                    <td>City name with a comma and the State abbreviation.</td>
+                                                    <td>None</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">city_no_st</th>
+                                                    <td>Just the city Name.</td>
+                                                    <td>None</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!--//table-responsive-->
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+
+	                            <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+	                                <a class="nav-link scrollto" href="#download-section">Overview</a>
+	                                <a class="nav-link scrollto" href="#installation-section">Endpoints</a>
+                                    <nav class="doc-sub-menu nav flex-column">
+                                        <a class="nav-link scrollto" href="#step1">City Data by ID</a>
+                                        <a class="nav-link scrollto" href="#step2">City Name Search</a>
+                                    </nav><!--//nav-->
+
+
+	                                <a class="nav-link scrollto" href="#tables-section">Data Points</a>
+
+	                            </nav><!--//doc-menu-->
+
+                        </div>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+
+    </div><!--//page-wrapper-->
+
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+
+            <small class="copyright"><a href="http://citrics.io" target="_blank">Citrics</a> 2020</small>
+
+        </div><!--//container-->
+    </footer><!--//footer-->
+
+
+    <!-- Main Javascript -->
+    <script type="text/javascript" src="static/assets/plugins/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/assets/plugins/prism/prism.js"></script>
+    <script type="text/javascript" src="static/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="static/assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+    <script type="text/javascript" src="static/assets/js/main.js"></script>
+
+</body>
+</html>
