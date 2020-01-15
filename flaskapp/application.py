@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, redirect, url_for
 from decouple import config
 from flask_pymongo import PyMongo
 from flask_cors import CORS
@@ -18,7 +18,10 @@ CORS(app)
 # Dynamic End Point
 @app.route(f"/")
 def home():
+    return redirect(url_for('docs'))
 
+@app.route(f"/docs")
+def docs():
     return render_template('start.html')
 
 

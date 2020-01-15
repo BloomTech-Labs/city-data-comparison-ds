@@ -71,9 +71,9 @@
                             </section><!--//doc-section-->
                             <section id="installation-section" class="doc-section">
                                 <h2 class="section-title">Endpoints</h2>
-                                <div id="step1"  class="section-block">
+                                <div id="step11"  class="section-block">
                                     <h3 class="block-title">City Data by ID</h3>
-                                    <p>The City Data by ID endpoint returns all city data based on the Citrics unique ID. </p>
+                                    <p>The City Data by ID endpoint returns <a  href="#datasection">all city data</a> based on the Citrics unique ID. </p>
                                     <div class="code-block">
                                         <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/citydata/&lt;City_ID&gt;</code></pre>
                                     </div>
@@ -85,7 +85,7 @@
                                 </div><!--//section-block-->
                                 <div id="step2"  class="section-block">
                                     <h3 class="block-title">City Name Search (for misspelled queries)</h3>
-                                    <p>This endpoint receives text and matches the text to similarly spelled cities. The main purpose of this endpoint is to receive a city ID’s if a user spells the city wrong. This endpoint returns at most five similarly spelled cities along with the Citrics ID which can be used for “citydata” endpoint. </p>
+                                    <p>This endpoint receives text and matches the text to similarly spelled cities. The main purpose of this endpoint is to obtain a city ID if a user spells the city wrong. This endpoint returns at most five similarly spelled cities along with the Citrics ID which can be used for <a  href="#step11">citydata</a> endpoint. </p>
                                     <div class="code-block">
                                         <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/matchcity/&lt;City_name_and_State_Name&gt;</code></pre>
                                     </div>
@@ -106,7 +106,7 @@
                             </section><!--//doc-section-->
 
 
-                            <section id="tables-section" class="doc-section">
+                             <section id="datasection" class="doc-section">
                                 <h2 class="section-title">Data Points</h2>
                                 <div class="section-block">
                                     <p>This is a list of all the available data points for the Citric API.
@@ -153,13 +153,10 @@
 	                                <a class="nav-link scrollto" href="#download-section">Overview</a>
 	                                <a class="nav-link scrollto" href="#installation-section">Endpoints</a>
                                     <nav class="doc-sub-menu nav flex-column">
-                                        <a class="nav-link scrollto" href="#step1">City Data by ID</a>
+                                        <a class="nav-link scrollto" href="#step11">City Data by ID</a>
                                         <a class="nav-link scrollto" href="#step2">City Name Search</a>
                                     </nav><!--//nav-->
-
-
-	                                <a class="nav-link scrollto" href="#tables-section">Data Points</a>
-
+	                                <a class="nav-link scrollto" href="#datasection">Data Points</a>
 	                            </nav><!--//doc-menu-->
 
                         </div>
