@@ -155,13 +155,76 @@ def housingtest(seattle):
     )
     fig4.update_yaxes(title_text='% of all houses')
 
-    graphs = [fig,fig2,fig3, fig4]
+    smoc = seattle['Selected Monthly Owner Costs with Mortgage']
+    smockeys = list(smoc.keys())
+    smocvalues = list(smoc.values())
+    fig5 = go.Figure(go.Bar(
+            x=smockeys,
+            y=smocvalues))
+
+    fig5.update_layout(
+        title="Selected Monthly Owner Costs with Mortgage",
+        plot_bgcolor='#F9F9FB'
+    )
+    fig5.update_yaxes(title_text='% by price range')
+
+
+    vehicle = seattle['Vehicles Available']
+    vehiclekeys = list(vehicle.keys())
+    vehiclevalues = list(vehicle.values())
+    fig6 = go.Figure(go.Bar(
+            x=vehiclekeys,
+            y=vehiclevalues))
+
+    fig6.update_layout(
+        title= "Number of Vehicles Available per Home",
+        plot_bgcolor='#F9F9FB'
+    )
+    fig6.update_yaxes(title_text='% of all homes')
+
+    Population = seattle['Population Growth']
+    Populationkeys = list(Population.keys())
+    Populationvalues = list(Population.values())
+    fig7 = go.Figure(go.Scatter(
+            x=Populationkeys,
+            y=Populationvalues))
+
+    fig7.update_layout(
+        title= "Population Growth of Seattle Washington",
+        plot_bgcolor='#F9F9FB'
+    )
+    fig7.update_yaxes(title_text='')
+
+
+    males = seattle['Marital Status']['Males']
+    females = seattle['Marital Status']['Females']
+    maleskeys = list(males.keys())
+    malesvalues = list(males.values())
+    femaleskeys = list(females.keys())
+    femalesvalues = list(females.values())
+    fig8 = go.Figure(go.Bar(
+            x=maleskeys,
+            y=malesvalues,
+            name='Male'))
+    fig8.add_trace(go.Bar(x=femaleskeys , y=femalesvalues, name="Female"))
+    fig8.update_layout(
+        title= "Marital Status by Gender",
+        plot_bgcolor='#F9F9FB'
+    )
+    fig8.update_yaxes(title_text='% of all homes')
+
+
+    graphs = [fig,fig2,fig3, fig4, fig5, fig6, fig7, fig8]
 
     ids = ['graph-{}'.format(i) for i, _ in enumerate(graphs)]
     content = [['Housing Prices', 'Data pulled from the "Historical Property Value Data" key.', 'housing'],
                 ['Rent Prices','', ''],
                 ['Year Structure was Built','', ''],
-                ['All housese by number of bedrooms.','', '']]
+                ['All houses by number of bedrooms.','', ''],
+                ['Selected Monthly Owner Costs with Mortgage','',''],
+                ['Vehicles Available by Home','',''],
+                ['Population Growth','','social'],
+                ['Marital Status by Gender','','']]
 
     # Convert the figures to JSON
     # PlotlyJSONEncoder appropriately converts pandas, datetime, etc
