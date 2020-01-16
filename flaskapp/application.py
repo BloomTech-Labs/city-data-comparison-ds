@@ -3,6 +3,8 @@ from decouple import config
 from flask_pymongo import PyMongo
 from flask_cors import CORS
 from city_spelling_matcher import spellchecker
+from charts import *
+
 
 
 application = app = Flask(__name__)
@@ -15,6 +17,7 @@ ACCESS_KEY = config('ACCESS_KEY')
 CORS(app)
 
 
+
 # Dynamic End Point
 @app.route(f"/")
 def home():
@@ -22,7 +25,9 @@ def home():
 
 @app.route(f"/docs")
 def docs():
-    return render_template('start.html')
+    seattledata = seattle()
+    plot = housing(seattledata)
+    return render_template('start.html', plot=plot)
 
 
 @app.route(f"/{ACCESS_KEY}/citydata/<num>")
