@@ -26,8 +26,15 @@ def home():
 @app.route(f"/docs")
 def docs():
     seattledata = seattle()
-    plot = housing(seattledata)
-    return render_template('start.html', plot=plot)
+    plot = housingtest(seattledata)
+    graphJSON = plot[0]
+    ids = plot[1]
+    content = plot[2]
+
+
+    return render_template('start.html',
+                           ids=ids,
+                           graphJSON=graphJSON, content=content)
 
 
 @app.route(f"/{ACCESS_KEY}/citydata/<num>")

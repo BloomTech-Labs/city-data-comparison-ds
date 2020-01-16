@@ -21,6 +21,11 @@
 
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <!-- D3.js -->
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://d14fo0winaifog.cloudfront.net/plotly-basic.js"></script>
 
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="static/assets/css/styles.css">
@@ -496,26 +501,19 @@
                                     </div><!--//table-responsive-->
                                 </div><!--//section-block-->
                             </section>
+<!--//doc-section-->
+
                             <section id="charts" class="doc-section">
                                 <h2 class="section-title">Example Charts</h2>
-                                <div id="chart1"  class="section-block">
-                                    <h3 class="block-title">Housing Prices</h3>
-                                    <p>Data pulled from the  <i>"Historical Property Value Data"</i> key.</p>
-                                    <div class="code-block">
-                                      <div class="scrolling-wrapper">
-                                        <div class="card">
-                                          <div class="chart" id="bargraph">
-                                              <script>
-                                                  var graphs = {{plot | safe}};
-                                                  Plotly.plot('bargraph',graphs,{});
-                                              </script>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div><!--//code-block-->
+                              {% for id in ids %}
+                                <div id="{{content[ids.index(id)][2]}}"  class="section-block">
+                                    <h3 class="block-title">{{content[ids.index(id)][0]}}</h3>
+                                    <p>{{content[ids.index(id)][1]}}</p>
+                                      <div id="{{id}}"></div>
                                 </div><!--//section-block-->
-  <!--//section-block-->
-                            </section><!--//doc-section-->
+                              {% endfor %}
+                            <!--//section-block-->
+                            </section>
                         </div><!--//content-inner-->
                     </div><!--//doc-content-->
                     <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
@@ -531,7 +529,7 @@
 	                                <a class="nav-link scrollto" href="#datasection">Data Points</a>
                                   <a class="nav-link scrollto" href="#charts">Example Charts</a>
                                     <nav class="doc-sub-menu nav flex-column">
-                                        <a class="nav-link scrollto" href="#chart1">Property Values</a>
+                                        <a class="nav-link scrollto" href="#housing">Housing Stats</a>
 
                                     </nav>
 	                            </nav><!--//doc-menu-->
@@ -554,6 +552,18 @@
 
 
     <!-- Main Javascript -->
+    <script type="text/javascript">
+
+        var graphs = {{graphJSON | safe}};
+        var ids = {{ids | safe}};
+
+        for(var i in graphs) {
+            Plotly.plot(ids[i], // the ID of the div, created above
+                        graphs[i].data,
+                        graphs[i].layout || {});
+        }
+
+    </script>
     <script type="text/javascript" src="static/assets/plugins/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="static/assets/plugins/prism/prism.js"></script>
