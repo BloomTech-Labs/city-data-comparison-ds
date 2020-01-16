@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request, render_template, redirect, url_for
 from decouple import config
 from flask_pymongo import PyMongo
 from flask_cors import CORS
-from city_spelling_matcher import spellchecker
+from city_spelling_matcher import *
 from charts import *
 
 
@@ -10,7 +10,7 @@ from charts import *
 application = app = Flask(__name__)
 
 # Connect to MongoDB
-
+app.config["JSON_SORT_KEYS"] = False
 app.config['MONGO_URI'] = config('MONGO_URI')
 mongo = PyMongo(app)
 ACCESS_KEY = config('ACCESS_KEY')
@@ -37,8 +37,9 @@ def allcitydata(num):
 
 @app.route(f"/{ACCESS_KEY}/matchcity/<words>")
 def spelling_matcher(words):
-  doc = spellchecker(words)
-  return jsonify(doc)
+    data = data_loader()
+    doc = check_spelling(data, words)
+    return jsonify(doc)
 
 
 

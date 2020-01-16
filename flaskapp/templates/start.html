@@ -502,12 +502,15 @@
                                     <h3 class="block-title">Housing Prices</h3>
                                     <p>Data pulled from the  <i>"Historical Property Value Data"</i> key.</p>
                                     <div class="code-block">
-
-                                      <div class="chart" id="bargraph">
-                                          <script>
-                                              var graphs = {{plot | safe}};
-                                              Plotly.plot('bargraph',graphs,{});
-                                          </script>
+                                      <div class="scrolling-wrapper">
+                                        <div class="card">
+                                          <div class="chart" id="bargraph">
+                                              <script>
+                                                  var graphs = {{plot | safe}};
+                                                  Plotly.plot('bargraph',graphs,{});
+                                              </script>
+                                          </div>
+                                        </div>
                                       </div>
                                     </div><!--//code-block-->
                                 </div><!--//section-block-->
