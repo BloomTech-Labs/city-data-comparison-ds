@@ -4,7 +4,7 @@ from math import cos, asin, sqrt
 import pymongo
 import numpy as np
 
-mongokey = "mongodb+srv://citricuser:HvzCrN97bTcTiB4@cluster0-f4vji.mongodb.net/test?retryWrites=true&w=majority"
+mongokey = ""
 client = pymongo.MongoClient(mongokey)
 db = client.citydata
 table = db.alldata
