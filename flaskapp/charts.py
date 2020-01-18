@@ -405,8 +405,5 @@ def housingtest(seattle):
                 ['Household Income','','eco'],
                 ['Per Capita Income','','']]
 
-    # Convert the figures to JSON
-    # PlotlyJSONEncoder appropriately converts pandas, datetime, etc
-    # objects to their JSON equivalents
     graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
     return((graphJSON, ids, content))
