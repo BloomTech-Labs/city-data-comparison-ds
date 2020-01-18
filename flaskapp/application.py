@@ -52,6 +52,10 @@ def spelling_matcher(words):
     return jsonify(doc)
 
 
+@app.route('/postjson', methods = ['POST'])
+def foo():
+    data = request.get_json(force=True)
+    return jsonify(data)
 
 if __name__ == "__main__":
     app.run(debug=True)
