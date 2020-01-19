@@ -7,7 +7,7 @@ import json
 
 
 def seattle():
-    with open('data/seattle.json', 'r') as myfile:
+    with open('app/data/seattle.json', 'r') as myfile:
         data=myfile.read()
     seattlejsn = json.loads(data)
     return(seattlejsn)
