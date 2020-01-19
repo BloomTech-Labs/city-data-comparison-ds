@@ -9,7 +9,7 @@ from flask import jsonify
 
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, static_url_path='/app/static')
 
     # Connect to MongoDB
     app.config["JSON_SORT_KEYS"] = False
