@@ -12,6 +12,7 @@ def create_app():
     app = Flask(__name__, static_url_path='/app/static')
 
     # Connect to MongoDB
+    seattledata = seattle()
     app.config["JSON_SORT_KEYS"] = False
     app.config['MONGO_URI'] = config('MONGO_URI')
     mongo = PyMongo(app)
@@ -27,7 +28,6 @@ def create_app():
 
     @app.route(f"/docs")
     def docs():
-        seattledata = seattle()
         plot = housingtest(seattledata)
         graphJSON = plot[0]
         ids = plot[1]
