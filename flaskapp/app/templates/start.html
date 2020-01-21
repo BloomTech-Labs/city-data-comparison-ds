@@ -65,7 +65,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> API‌ Documentation</h1>
-                    <div class="meta"><i class="far fa-clock"></i> Last updated: Jan 15th, 2020</div>
+                    <div class="meta"><i class="far fa-clock"></i> Last updated: Jan 20th, 2020</div>
                 </div><!--//doc-header-->
                 <div class="doc-body row">
                     <div class="doc-content col-md-9 col-12 order-1">
@@ -113,6 +113,20 @@
     ....
   }
 }</code></pre>
+<hr>
+                            <div id="ipaddress"  class="section-block">
+                                <h3 class="block-title">IP Address to City Data</h3>
+                                <p>The IP Address City Data by ID endpoint returns <a  href="#datasection">all city data</a> based on a users IP address.</p>
+                                <i>Note: This endpoint only accepts IPv4 addresses. Any unknown IP address will default to Seattle, WA.</i>
+                                <div class="code-block">
+                                    <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/ip_to_city/&lt;IP_Address&gt;</code></pre>
+                                </div>
+                                <h4>Data returned:</h4>
+                                <div class="code-block">
+                                    <pre><code class="language-git">All City Data</code></pre>
+                                </div>
+                                <hr><!--//code-block-->
+                            </div>
 <!--//section-block-->
                             </section><!--//doc-section-->
 
@@ -525,6 +539,7 @@
                                     <nav class="doc-sub-menu nav flex-column">
                                         <a class="nav-link scrollto" href="#step11">City Data by ID</a>
                                         <a class="nav-link scrollto" href="#step2">City Name Search</a>
+                                        <a class="nav-link scrollto" href="#ipaddress">IP Address Search</a>
                                     </nav><!--//nav-->
 	                                <a class="nav-link scrollto" href="#datasection">Data Points</a>
                                   <a class="nav-link scrollto" href="#charts">Example Charts</a>

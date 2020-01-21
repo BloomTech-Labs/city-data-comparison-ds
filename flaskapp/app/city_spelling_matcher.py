@@ -31,3 +31,14 @@ def check_spelling(data, words):
         else:
             res = {'No Data': f'Cannot find {words}, please check the spelling or search for another City.'}
     return(res)
+
+def force_id(data, words):
+    jsn = {}
+    res = difflib.get_close_matches(words.lower(), list(data.keys()), n=1)
+    if len(res) > 0:
+        jsn['data'] = data[res[0]]
+        jsn = jsn['data'][list(jsn['data'].keys())[0]]['ID']
+    else:
+        jsn['data'] = data['Seattle WA']
+        jsn = jsn['data']['Seattle, WA']['ID']
+    return(jsn)
