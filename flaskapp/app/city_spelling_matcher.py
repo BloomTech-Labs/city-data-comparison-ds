@@ -2,7 +2,7 @@ import difflib
 import json
 
 def data_loader():
-    with open('data/spellcheck/spell_check_opject2.json', 'r') as myfile:
+    with open('app/data/spellcheck/spell_check_opject2.json', 'r') as myfile:
         data=myfile.read()
         obj = json.loads(data)
     return(obj)

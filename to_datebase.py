@@ -67,11 +67,11 @@ for nm in range(len(df)):
         has_onebed = True
         city_data_availible = False
         no_city_data = True
-        Zhvi_1bedroom_dict = np.NaN
-        Zhvi_2bedroom_dict = np.NaN
-        Zhvi_3bedroom_dict = np.NaN
-        Zhvi_4bedroom_dict = np.NaN
-        Zhvi_5Bedroom_dict = np.NaN
+        Zhvi_1bedroom_dict = None
+        Zhvi_2bedroom_dict = None
+        Zhvi_3bedroom_dict = None
+        Zhvi_4bedroom_dict = None
+        Zhvi_5Bedroom_dict = None
         st = df_ref['st'][nm]
         zip_state = zillow_zips[zillow_zips['State'] == st]
         clat = zip_state.lat.values
@@ -102,14 +102,15 @@ for nm in range(len(df)):
                 vars()[room_name.split('Zhvi')[1]] = True
                 city_full_name = df_ref['full_name'][nm]
                 bed_vals = vars()[room_name][vars()[room_name].full_name == city_full_name][housing_dates].values[0]
+                bed_vals = [None if str(i) == 'nan' else i for i in bed_vals]
                 bedroom_dynamic_value = room_name + '_dict'
                 vars()[bedroom_dynamic_value] = {}
                 for price in range(len(housing_dates)):
-                    vars()[bedroom_dynamic_value][housing_dates[price]] = float(bed_vals[price])
+                    vars()[bedroom_dynamic_value][housing_dates[price]] = bed_vals[price]
             else:
                 bedroom_dynamic_value = room_name + '_dict'
                 vars()[room_name.split('Zhvi')[1]] = False
-                vars()[bedroom_dynamic_value]= np.NaN
+                vars()[bedroom_dynamic_value]= None
     jsn =   {'_id':nm,
         'name_with_com':df_ref['name_comm'][nm],
         'city_no_st':df_ref['only_city'][nm],
