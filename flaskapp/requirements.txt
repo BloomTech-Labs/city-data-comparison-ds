@@ -4,6 +4,7 @@ Flask==1.1.1
 Flask-Cors==3.0.8
 Flask-PyMongo==2.3.0
 Flask-SQLAlchemy==2.4.1
+Flask-SSLify==0.1.5
 itsdangerous==1.1.0
 Jinja2==2.10.3
 MarkupSafe==1.1.1

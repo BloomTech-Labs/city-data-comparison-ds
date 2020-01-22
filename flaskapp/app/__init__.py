@@ -9,12 +9,14 @@ from flask import json
 from flask import jsonify
 from flask_sqlalchemy import SQLAlchemy
 import netaddr
+from flask_sslify import SSLify
 
 def create_app():
     app = Flask(__name__, static_url_path='/app/static')
 
     # Connect to MongoDB
     seattledata = seattle()
+    data = data_loader()
     app.config["JSON_SORT_KEYS"] = False
     app.config['MONGO_URI'] = config('MONGO_URI')
     mongo = PyMongo(app)
@@ -22,6 +24,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = config('SQLALCHEMY_DATABASE_URI')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db = SQLAlchemy(app)
+    sslify = SSLify(app)
     CORS(app)
 
     class usip(db.Model):
@@ -78,7 +81,6 @@ def create_app():
 
     @app.route(f'/{ACCESS_KEY}/ip_to_city/<ip>', methods=['GET'])
     def get_product(ip):
-        data = data_loader()
         try:
             dec_ip = convert_ip(ip)
             data_query = usip.query.filter((usip.from_ip <= int(dec_ip)) & (usip.to_ip >= int(dec_ip))).first()
@@ -90,7 +92,26 @@ def create_app():
                 state = 'WA'
         except:
                 city = 'Seattle'
-                state = 'WA'            
+                state = 'WA'
+        city_id = force_id(data, f"{city} {state}")
+        doc = mongo.db.alldata.find_one({'_id':int(city_id)})
+        return jsonify(doc)
+
+    @app.route(f'/{ACCESS_KEY}/ip_to_city2/<ip>', methods=['GET'])
+    def get_product2(ip):
+        try:
+            data = data_loader()
+            dec_ip = convert_ip(ip)
+            data_query = usip.query.filter((usip.from_ip <= int(dec_ip)) & (usip.to_ip >= int(dec_ip))).first()
+            if data_query != None:
+                city = data_query.city
+                state = data_query.state
+            else:
+                city = 'Seattle'
+                state = 'WA'
+        except:
+                city = 'Seattle'
+                state = 'WA'
         city_id = force_id(data, f"{city} {state}")
         doc = mongo.db.alldata.find_one({'_id':int(city_id)})
         return jsonify(doc)
