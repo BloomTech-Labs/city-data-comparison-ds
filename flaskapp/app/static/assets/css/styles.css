@@ -97,8 +97,8 @@ code {
 }
 
 .btn-green, a.btn-green {
-  background: #75c181;
-  border: 1px solid #75c181;
+  background: #2ca4fc;
+  border: 1px solid #2ca4fc;
   color: #fff !important;
 }
 
@@ -238,7 +238,7 @@ select {
 
 /* ====== Header ====== */
 .header {
-  background: #494d55;
+  background: #272822;
   color: rgba(255, 255, 255, 0.85);
   border-top: 5px solid #40babd;
   padding: 30px 0;
@@ -272,7 +272,7 @@ select {
 }
 
 .body-green .branding .text-highlight {
-  color: #75c181;
+  color: #2ca4fc;
 }
 
 .body-blue .branding .text-highlight {
@@ -306,7 +306,7 @@ select {
 }
 
 .body-green .branding .icon {
-  color: #75c181;
+  color: #2ca4fc;
 }
 
 .body-blue .branding .icon {
@@ -441,7 +441,7 @@ select {
 }
 
 .body-green .doc-header .doc-title {
-  color: #75c181;
+  color: #2ca4fc;
 }
 
 .body-blue .doc-header .doc-title {
@@ -630,7 +630,7 @@ select {
 }
 
 .callout-success {
-  background: #75c181;
+  background: #2ca4fc;
   color: #fff;
 }
 
@@ -649,7 +649,7 @@ select {
 }
 
 .body-green .table > thead > tr > th {
-  border-bottom-color: #bbe1c1;
+  border-bottom-color: #2ca4fc;
 }
 
 .body-blue .table > thead > tr > th {
@@ -814,11 +814,11 @@ select {
 
 /* Color Schemes */
 .body-green .header {
-  border-color: #75c181;
+  border-color: #2ca4fc;
 }
 
 .body-green a {
-  color: #75c181;
+  color: #2ca4fc;
 }
 
 .body-green a:hover {
@@ -927,8 +927,8 @@ select {
 }
 
 .body-green .doc-menu .nav-link.active {
-  color: #75c181;
-  border-color: #75c181;
+  color: #2ca4fc;
+  border-color: #2ca4fc;
 }
 
 .body-blue .doc-menu .nav-link.active {
@@ -991,7 +991,7 @@ select {
 }
 
 .body-green .doc-sub-menu .nav-link.active {
-  color: #75c181;
+  color: #2ca4fc;
 }
 
 .body-blue .doc-sub-menu .nav-link.active {
@@ -1358,7 +1358,7 @@ select {
 }
 
 .cards-section .item-green .item-inner {
-  border-top: 3px solid #75c181;
+  border-top: 3px solid #2ca4fc;
 }
 
 .cards-section .item-green .item-inner:hover .title {
@@ -1366,7 +1366,7 @@ select {
 }
 
 .cards-section .item-green .icon {
-  color: #75c181;
+  color: #2ca4fc;
 }
 
 .cards-section .item-blue .item-inner {
