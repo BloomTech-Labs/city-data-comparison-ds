@@ -4,6 +4,7 @@ from flask_pymongo import PyMongo
 from flask_cors import CORS
 from app.city_spelling_matcher import *
 from app.charts import *
+#from app.pred_models import *
 from app.data_rangle import *
 from flask import json
 from flask import jsonify
@@ -25,6 +26,8 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db = SQLAlchemy(app)
     sslify = SSLify(app)
+    #housing_nn = joblib.load('app/models/housing/housing.sav')
+
     CORS(app)
 
     class usip(db.Model):
@@ -115,5 +118,7 @@ def create_app():
         city_id = force_id(data, f"{city} {state}")
         doc = mongo.db.alldata.find_one({'_id':int(city_id)})
         return jsonify(doc)
+
+
 
     return app
