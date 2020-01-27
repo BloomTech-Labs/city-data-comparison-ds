@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Citrics API Docs</title>
+    <link rel="icon" href="app\static\assets\images\department.png">
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="apps/static/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="apps/static/assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="apps/static/assets/plugins/elegant_font/css/style.css">
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <!-- D3.js -->
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://d14fo0winaifog.cloudfront.net/plotly-basic.js"></script>
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="apps/static/assets/css/styles.css">
+
+</head>
+
+<body class="body-green">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">Citrics</span><span class="text-bold">API</span>
+                        </a>
+                    </h1>
+
+                </div><!--//branding-->
+
+                <ol class="breadcrumb">
+
+                </ol>
+
+                <div class="top-search-box">
+	                 <form class="form-inline search-form justify-content-center" action="" method="get">
+
+
+
+			        </form>
+                </div>
+
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> API‌ Documentation</h1>
+                    <div class="meta"><i class="far fa-clock"></i> Last updated: Jan 20th, 2020</div>
+                </div><!--//doc-header-->
+                <div class="doc-body row">
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+                            <section id="download-section" class="doc-section">
+                                <h2 class="section-title">Overview</h2>
+                                <div class="section-block">
+                                    <p>The Citrics API‌ offers a broad range of city-related data for nearly every single city in the United States. Our primary source of data comes from the Census Social Characteristics, Economic Characteristics, Housing Characteristics, and Demographic Characteristics datasets. The following documentation will help you better understand what data is available and how to work with each endpoint.
+                                    </p>
+                                    <a href="https://github.com/Lambda-School-Labs/city-data-comparison-ds" class="btn btn-green" target="_blank"><i class="fab fa-github"></i> View Github</a>
+                                </div>
+                            </section><!--//doc-section-->
+                            <section id="installation-section" class="doc-section">
+                                <h2 class="section-title">Endpoints</h2>
+                                <div id="step11"  class="section-block">
+                                    <h3 class="block-title">City Data by ID</h3>
+                                    <p>The City Data by ID endpoint returns <a  href="#datasection">all city data</a> based on the Citrics unique ID. </p>
+                                    <div class="code-block">
+                                        <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/citydata/&lt;City_ID&gt;</code></pre>
+                                    </div>
+                                    <h4>Data returned:</h4>
+                                    <div class="code-block">
+                                        <pre><code class="language-git">All City Data</code></pre>
+                                    </div>
+                                    <hr><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="step2"  class="section-block">
+                                    <h3 class="block-title">City Name Search (for misspelled queries)</h3>
+                                    <p>This endpoint receives text and matches the text to similarly spelled cities. The main purpose of this endpoint is to obtain a city ID if a user spells the city wrong. This endpoint returns at most five similarly spelled cities along with the Citrics ID which can be used for <a  href="#step11">citydata</a> endpoint. </p>
+                                    <div class="code-block">
+                                        <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/matchcity/&lt;City_name_and_State_Name&gt;</code></pre>
+                                    </div>
+                                    <h4>Data returned:</h4>
+                                    <div class="code-block">
+                                        <pre><code class="language-css">{
+  "Salt Lake City, UT": {
+    "ID": 17929,
+    "lat": 40.7774,
+    "lng": -111.93,
+    "population": 195701,
+    "st": "UT",
+    "state": "Utah"
+  },
+  {
+    ....
+  }
+}</code></pre>
+<hr>
+                            <div id="ipaddress"  class="section-block">
+                                <h3 class="block-title">IP Address to City Data</h3>
+                                <p>The IP Address City Data by ID endpoint returns <a  href="#datasection">all city data</a> based on a users IP address.</p>
+                                <i>Note: This endpoint only accepts IPv4 addresses. Any unknown IP address will default to Seattle, WA.</i>
+                                <div class="code-block">
+                                    <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/ip_to_city/&lt;IP_Address&gt;</code></pre>
+                                </div>
+                                <h4>Data returned:</h4>
+                                <div class="code-block">
+                                    <pre><code class="language-git">All City Data</code></pre>
+                                </div>
+                                <hr><!--//code-block-->
+                            </div>
+<!--//section-block-->
+                            </section><!--//doc-section-->
+
+
+                             <section id="datasection" class="doc-section">
+                                <h2 class="section-title">Data Points</h2>
+                                <div class="section-block">
+                                    <p>This is a list of all the available data points for the Citric API.
+                                    </p>
+                                </div>
+                                <div class="section-block"><!--//table-responsive-->
+                                    <h6>All City Data</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Key</th>
+                                                    <th>Info</th>
+                                                    <th>Nested Keys</th>
+                                                    <th>Used</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">name_with_com</th>
+                                                    <td>City name with a comma and the State abbreviation.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">city_no_st</th>
+                                                    <td>Just the city Name.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">census_full_name</th>
+                                                    <td>Original name in Census datasets.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">State</th>
+                                                    <td>Name of the State.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">st</th>
+                                                    <td>State abbreviation.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">City</th>
+                                                    <td>City name with State abbreviation.</td>
+                                                    <td>None</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">geo_id</th>
+                                                    <td>Census assigned ID.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Latitude</th>
+                                                    <td>Latitude of City.</td>
+                                                    <td>None</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Longitude</th>
+                                                    <td>Longitude of City.</td>
+                                                    <td>None</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Total Population</th>
+                                                    <td>Population as of 2018.</td>
+                                                    <td>None</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Population Male & Female</th>
+                                                    <td>Population breakdown by gender.</td>
+                                                    <td>Male, Female</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Age Distribution</th>
+                                                    <td>Age Distribution for City population.</td>
+                                                    <td><i>13 keys grouping ages of the population</i></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Median Age</th>
+                                                    <td>Median age for population of the City.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Population under 18</th>
+                                                    <td>Percentage of total population under the age of 18.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Population over 16</th>
+                                                    <td>Percentage of total population over the age of 16.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Ethnicity</th>
+                                                    <td>Percentage of total population broken into different ethnic groups.</td>
+                                                    <td>Hispanic or Latino, Hispanic or Latino, American Indian, Asian, Pacific Islander, other race, Two or more races</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Marital Status</th>
+                                                    <td>Marital Status of Males and Females.</td>
+                                                    <td>Males, Females</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Recent Mothers</th>
+                                                    <td>Statistic related to mothers and births.</td>
+                                                    <td>Total, Birth Rate, Age Distribution, National Avg</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Recent Mothers:Total</th>
+                                                    <td>Total number of women who gave birth in the last 12 months.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Recent Mothers:Birth Rate</th>
+                                                    <td>Number of mothers who gave birth per 1000 women.</td>
+                                                    <td>None</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Recent Mothers:Age Distribution</th>
+                                                    <td>Age Distribution of females that gave birth in the last 12 months.</td>
+                                                    <td>15-34, 20-34, 20-34</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Recent Mothers:National Avg</th>
+                                                    <td>National Avg for age distribution of females that gave birth in the last 12 months.</td>
+                                                    <td>15-34, 20-34, 20-34</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">School Enrollment</th>
+                                                    <td>Percentage of population 3 years and over enrolled in school.</td>
+                                                    <td>Preschool, Elementary, High school, College</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Educational Attainment</th>
+                                                    <td>Percentage of population 25 years and over level of education attained.</td>
+                                                    <td>Less than 9th grade, 9th to 12th grade no diploma, High school, Some college no degree, Associate's degree, Bachelor's degree, Graduate degree</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Language</th>
+                                                    <td>Population five years and older English Language ability.</td>
+                                                    <td>English Only, Language other than English, Cannot Speak English</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Two or more Languages</th>
+                                                    <td>Population five years and older that can speak more than one language.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Unemployment Rate</th>
+                                                    <td>Percentage of Civilian labor force that are unemployed.</td>
+                                                    <td>None</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Sex of Labor Force</th>
+                                                    <td>City Labor Force broken down into percentage of Male and Female.</td>
+                                                    <td>Male, Female</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Commuting to Work</th>
+                                                    <td>Percentage of Work Force by means of transport to work.</td>
+                                                    <td>Drives Alone, Carpools, Public Transport, Walks, Works at home, Other transport</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Mean Travel Time</th>
+                                                    <td>The average number of minutes it takes to travel to work.</td>
+                                                    <td>None</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Occupation</th>
+                                                    <td>Percentage of work force broken down by occupation.</td>
+                                                    <td><i>Many keys</i></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Industry</th>
+                                                    <td>Percentage of work force broken down by type of industry.</td>
+                                                    <td><i>Many keys</i></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Class of Worker</th>
+                                                    <td>Percentage of work force broken down by class of worker.</td>
+                                                    <td><i>Many keys</i></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Household Income</th>
+                                                    <td>Percentage of Total Households broken down by household income.</td>
+                                                    <td><i>Many keys</i></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Median Household Income</th>
+                                                    <td>Median Household Income of all households in a City.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Mean Household Income</th>
+                                                    <td>Mean Household Income of all households in a City.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Retirement Percent</th>
+                                                    <td>Percentage of households by type of Retirement savings.</td>
+                                                    <td>With Social Security, With retirement income, With Supplemental Security Income</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Retirement Avg</th>
+                                                    <td>Avgerage Retirement savings for all households by type of Retirement savings.</td>
+                                                    <td>With Social Security, With retirement income, With Supplemental Security Income</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Public Assistance Percent</th>
+                                                    <td>Percentage of households that receive public assistance by type of publick assistance.</td>
+                                                    <td>With cash public assistance income,With Food Stamp/SNAP benefits</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Median Per Capita Income</th>
+                                                    <td>Median Per Capita Income for all workers.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Per Capita by Gender</th>
+                                                    <td>Median Per Capita Income for all workers by gender.</td>
+                                                    <td>Female, Male</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Health Insurance</th>
+                                                    <td>Percentage of families with health insurance.</td>
+                                                    <td>None</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Below Poverty Level</th>
+                                                    <td>Percentage of families living below the poverty line.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Total Housing Units</th>
+                                                    <td>total number of houses in a City.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Occupied Housing Units</th>
+                                                    <td>Percentage of occupied housing units vs vacant housing units.</td>
+                                                    <td>Occupied Housing Units, Vacant Housing Units</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Vacancy Rate</th>
+                                                    <td>Home owner vacancy rate vs rental vacancy rate.</td>
+                                                    <td>Homeowner vacancy rate, Rental vacancy rate</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Units in Structure</th>
+                                                    <td>Percentage of total properties by unit of structures.</td>
+                                                    <td><i>Many keys</i></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Year Built</th>
+                                                    <td>Percentage of total housing units by year built.</td>
+                                                    <td><i>Many keys realated to dates.</i></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Housing by rooms</th>
+                                                    <td>Percentage of total housing units by number of rooms.</td>
+                                                    <td><i>Many keys realated to number of rooms.</i></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Housing by bedrooms</th>
+                                                    <td>Percentage of total housing units by number of bedrooms.</td>
+                                                    <td><i>Many keys realated to number of bedrooms.</i></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Occupants per room</th>
+                                                    <td>Percentage of total housing units by the number of occupants per room.</td>
+                                                    <td>1 or less, 1 to one and a half, one and a half or more</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Vehicles Available</th>
+                                                    <td>Percentage of total housing units by the number of vehicles available.</td>
+                                                    <td>1 vehicle available, 2 vehicles available, 3 or more vehicles available</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Selected Monthly Owner Costs with Mortgage</th>
+                                                    <td>Selected Monthly Owner Costs (SMOC) with Mortgage. This is the sum of payment for mortgages, real estate taxes, various insurances, utilities, fuels, mobile home costs, and condominium fees</td>
+                                                    <td><i>Many keys realated to cost in USD.</i></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Median Selected Monthly Owner Costs with Mortgage</th>
+                                                    <td>Median Selected Monthly Owner Costs (SMOC) with Mortgage.</td>
+                                                    <td>None</td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Selected Monthly Owner Costs without Mortgage</th>
+                                                    <td>Selected Monthly Owner Costs (SMOC) without a Mortgage. This number will be smaller due to the fact a mortgage is usually the most expensive living expense.</td>
+                                                    <td><i>Many keys realated to cost in USD.</i></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Median Selected Monthly Owner Costs without Mortgage</th>
+                                                    <td>Median Selected Monthly Owner Costs (SMOC) without Mortgage.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Rent</th>
+                                                    <td>Percentage of average price for rent.</td>
+                                                    <td><i>Many keys realated to cost in USD.</i></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Median Rent</th>
+                                                    <td>Median price for rent in a City.</td>
+                                                    <td>None</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Population Growth</th>
+                                                    <td>Population growth from 2010-2018.</td>
+                                                    <td><i>Many keys realated to years.</i></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">housing_helper</th>
+                                                    <td>The housing helper allows you to better understand what data is available and missing for each city.</td>
+                                                    <td><i>Many keys realated to the state of data.</i></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Historical Property Value Data</th>
+                                                    <td>Average price of homes from the last 10 years sorted by number of rooms in the house and the mean all houses in a city.</td>
+                                                    <td><i>Many keys realated to property value.</i></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Walk Score</th>
+                                                    <td>walkability score provided by walkscore.com.</td>
+                                                    <td>None</td>
+                                                    <td align="center"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Bike Score</th>
+                                                    <td>Bikeability score provided by walkscore.com.</td>
+                                                    <td>None</td>
+                                                    <td align="center"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Transit Score</th>
+                                                    <td>Transit score provided by walkscore.com.</td>
+                                                    <td>None</td>
+                                                    <td align="center"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!--//table-responsive-->
+                                </div><!--//section-block-->
+                            </section>
+<!--//doc-section-->
+
+                            <section id="charts" class="doc-section">
+                                <h2 class="section-title">Example Charts</h2>
+                              {% for id in ids %}
+                                <div id="{{content[ids.index(id)][2]}}"  class="section-block">
+                                    <h3 class="block-title">{{content[ids.index(id)][0]}}</h3>
+                                    <p>{{content[ids.index(id)][1]}}</p>
+                                      <div id="{{id}}"></div>
+                                </div><!--//section-block-->
+                              {% endfor %}
+                            <!--//section-block-->
+                            </section>
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+
+	                            <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+	                                <a class="nav-link scrollto" href="#download-section">Overview</a>
+	                                <a class="nav-link scrollto" href="#installation-section">Endpoints</a>
+                                    <nav class="doc-sub-menu nav flex-column">
+                                        <a class="nav-link scrollto" href="#step11">City Data by ID</a>
+                                        <a class="nav-link scrollto" href="#step2">City Name Search</a>
+                                        <a class="nav-link scrollto" href="#ipaddress">IP Address Search</a>
+                                    </nav><!--//nav-->
+	                                <a class="nav-link scrollto" href="#datasection">Data Points</a>
+                                  <a class="nav-link scrollto" href="#charts">Example Charts</a>
+                                    <nav class="doc-sub-menu nav flex-column">
+                                        <a class="nav-link scrollto" href="#housing">Housing Stats</a>
+                                        <a class="nav-link scrollto" href="#social">Social Trends</a>
+                                        <a class="nav-link scrollto" href="#work">Work Stats</a>
+                                        <a class="nav-link scrollto" href="#eco">Economics</a>
+                                    </nav>
+	                            </nav><!--//doc-menu-->
+
+                        </div>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+
+    </div><!--//page-wrapper-->
+
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+
+            <small class="copyright"><a href="http://citrics.io" target="_blank">Citrics</a> 2020</small>
+
+        </div><!--//container-->
+    </footer><!--//footer-->
+
+
+    <!-- Main Javascript -->
+    <script type="text/javascript">
+
+        var graphs = {{graphJSON | safe}};
+        var ids = {{ids | safe}};
+
+        for(var i in graphs) {
+            Plotly.plot(ids[i], // the ID of the div, created above
+                        graphs[i].data,
+                        graphs[i].layout || {});
+        }
+
+    </script>
+    <script type="text/javascript" src="apps/static/assets/plugins/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="apps/static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="apps/static/assets/plugins/prism/prism.js"></script>
+    <script type="text/javascript" src="apps/static/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="apps/static/assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+    <script type="text/javascript" src="apps/static/assets/js/main.js"></script>
+
+</body>
+</html>
