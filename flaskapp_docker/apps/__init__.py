@@ -28,6 +28,8 @@ def create_app():
     db = SQLAlchemy(app)
     sslify = SSLify(app)
     housing_nn = joblib.load('apps/models/housing/housing.joblib')
+    industry_scaler = joblib.load('apps/models/industry/industry_scaler.joblib') 
+    industry_model = joblib.load('apps/models/industry/industry_model.joblib') 
 
     CORS(app)
 
@@ -101,34 +103,29 @@ def create_app():
         doc = mongo.db.alldata.find_one({'_id':int(city_id)})
         return jsonify(doc)
 
-    @app.route(f"/{ACCESS_KEY}/ip_to_city2/<ip>", methods=['GET'])
-    def get_product2(ip):
-        try:
-            data = data_loader()
-            dec_ip = convert_ip(ip)
-            data_query = usip.query.filter((usip.from_ip <= int(dec_ip)) & (usip.to_ip >= int(dec_ip))).first()
-            if data_query != None:
-                city = data_query.city
-                state = data_query.state
-            else:
-                city = 'Seattle'
-                state = 'WA'
-        except:
-                city = 'Seattle'
-                state = 'WA'
-        city_id = force_id(data, f"{city} {state}")
-        doc = mongo.db.alldata.find_one({'_id':int(city_id)})
-        return jsonify(doc)
-
 
     @app.route(f"/{ACCESS_KEY}/recommend/housing/<cityid>")
     def housing_rec(cityid):
-        jsn = mongo.db.alldata.find_one({'_id':int(cityid)})
-        modelli = get_housing(jsn)
-        res = housing_model(modelli, housing_nn)
-        mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
-        res_dict = object_format(mongo_obj)                     
+        try:
+            jsn = mongo.db.alldata.find_one({'_id':int(cityid)})
+            modelli = get_housing(jsn)
+            res = housing_model(modelli, housing_nn)
+            mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
+            res_dict = object_format(mongo_obj)  
+        except:
+            res_dict = {'error':'invalid ID'}                   
         return(jsonify(res_dict))
 
+    @app.route(f"/{ACCESS_KEY}/recommend/industry/<cityid>")
+    def industry_rec(cityid):
+        try:
+            jsn = mongo.db.alldata.find_one({'_id':int(cityid)})
+            modelli = get_industry(jsn)
+            res = industry_render(modelli, industry_scaler, industry_model, cityid)
+            mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
+            res_dict = object_format(mongo_obj)  
+        except:
+            res_dict = {'error':'invalid ID'}                   
+        return(jsonify(res_dict))
 
     return app

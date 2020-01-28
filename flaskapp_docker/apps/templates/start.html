@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Citrics API Docs</title>
-    <link rel="icon" href="app\static\assets\images\department.png">
+    <link rel="icon" href="apps\static\assets\images\department.png">
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,7 +65,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> API‌ Documentation</h1>
-                    <div class="meta"><i class="far fa-clock"></i> Last updated: Jan 20th, 2020</div>
+                    <div class="meta"><i class="far fa-clock"></i> Last updated: Jan 28th, 2020</div>
                 </div><!--//doc-header-->
                 <div class="doc-body row">
                     <div class="doc-content col-md-9 col-12 order-1">
@@ -124,6 +124,31 @@
                                 <h4>Data returned:</h4>
                                 <div class="code-block">
                                     <pre><code class="language-git">All City Data</code></pre>
+                                </div>
+                                <hr><!--//code-block-->
+                            </div>
+                            <div id="housingr"  class="section-block">
+                                <h3 class="block-title">Similar Cities by Housing Features</h3>
+                                <p>This end point takes a city ID and recommends similar cities based on housing characteristics.</p>
+                                <div class="code-block">
+                                    <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/recommend/housing/&lt;CityID&gt;</code></pre>
+                                </div>
+                                <h4>Data returned:</h4>
+                                <div class="code-block">
+                                    <pre><code class="language-css">{
+    "Evening Shade, AR": {
+        "id": 861, 
+        "Latitude": 36.0702, 
+        "Longitude": -91.6219, 
+        "State": "Arkansas"
+    }, 
+    "Hillsdale, IL": {
+        "id": 3449, 
+        "Latitude": 41.6108, 
+        "Longitude": -90.1751, 
+        "State": "Illinois"
+    }, ...
+}</code></pre>
                                 </div>
                                 <hr><!--//code-block-->
                             </div>
@@ -564,6 +589,7 @@
                                         <a class="nav-link scrollto" href="#step11">City Data by ID</a>
                                         <a class="nav-link scrollto" href="#step2">City Name Search</a>
                                         <a class="nav-link scrollto" href="#ipaddress">IP Address Search</a>
+                                        <a class="nav-link scrollto" href="#housingr">City Suggester: Housing</a>
                                     </nav><!--//nav-->
 	                                <a class="nav-link scrollto" href="#datasection">Data Points</a>
                                   <a class="nav-link scrollto" href="#charts">Example Charts</a>

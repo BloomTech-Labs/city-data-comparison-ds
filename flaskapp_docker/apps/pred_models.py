@@ -42,3 +42,44 @@ def object_format(obj):
     for i in obj:
         jsn[i['name_with_com']] = {'id':i['_id'], 'Latitude': i['Latitude'], 'Longitude': i['Longitude'], 'State': i['State']}
     return(jsn)
+
+def get_industry(jsn):
+    get = jsn
+    construction = get['Industry']['Construction']
+    manu = get['Industry']['Manufacturing']
+    wholesale = get['Industry']['Wholesale trade']
+    retail = get['Industry']['Retail trade']
+    trans = get['Industry']['Transportation and warehousing and utilities']
+    info = get['Industry']['Information']
+    finance = get['Industry']['Finance and insurance and real estate and rental and leasing']
+    science = get['Industry']['Professional scientific and management and administrative and waste management services']
+    education = get['Industry']['Educational services and health care and social assistance']
+    art = get['Industry']['Arts entertainment and recreation and accommodation and food services']
+    other = get['Industry']['Other services except public administration']
+    admin = get['Industry']['Public administration']
+    health = get['Health Insurance']
+    unempl = get['Unemployment Rate']
+    income = get['Median Per Capita Income']
+    salary = []
+    for i in list(get['Household Income'].keys()):
+        salary.append(get['Household Income'][i])
+    drivea = get['Commuting to Work']['Drives Alone']
+    com2 = get['Commuting to Work']['Carpools']
+    com3 = get['Commuting to Work']['Public Transport']
+    com4 = get['Commuting to Work']['Walks']
+    com5 = get['Commuting to Work']['Works at home']
+    time = get['Mean Travel Time']
+    res = [construction, manu, wholesale, retail, trans, info, finance, science, education, art, other, admin, health, unempl, income] +  salary + [drivea, com2, com3, com4, com5, time]
+    
+    return(res)
+
+
+def industry_render(li, scale, nn, num):
+    feats_arry = np.array(li).reshape(1,-1)
+    feats_arry_scale = scale.transform(feats_arry)
+    res_arry = nn.query(feats_arry_scale, k=6)[1][0].tolist()
+    if int(num) in res_arry:
+        res_arry.remove(int(num))
+    else:
+        pass
+    return(res_arry)
