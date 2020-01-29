@@ -11,7 +11,7 @@ from flask import jsonify
 from flask_sqlalchemy import SQLAlchemy
 import netaddr
 from sklearn.neighbors import KDTree
-from flask_sslify import SSLify
+#from flask_sslify import SSLify
 
 def create_app():
     app = Flask(__name__, static_url_path='/apps/static')
@@ -26,10 +26,14 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = config('SQLALCHEMY_DATABASE_URI')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db = SQLAlchemy(app)
-    sslify = SSLify(app)
+    #sslify = SSLify(app)
     housing_nn = joblib.load('apps/models/housing/housing.joblib')
+    housing_scaler = joblib.load('apps/models/housing/housing_scaler.joblib') 
+    housing_model = joblib.load('apps/models/housing/housing_model.joblib')     
     industry_scaler = joblib.load('apps/models/industry/industry_scaler.joblib') 
     industry_model = joblib.load('apps/models/industry/industry_model.joblib') 
+    culture_scaler = joblib.load('apps/models/culture/culture_scaler.joblib') 
+    culture_model = joblib.load('apps/models/culture/culture_model.joblib') 
 
     CORS(app)
 
@@ -104,24 +108,37 @@ def create_app():
         return jsonify(doc)
 
 
-    @app.route(f"/{ACCESS_KEY}/recommend/housing/<cityid>")
-    def housing_rec(cityid):
-        try:
-            jsn = mongo.db.alldata.find_one({'_id':int(cityid)})
-            modelli = get_housing(jsn)
-            res = housing_model(modelli, housing_nn)
-            mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
-            res_dict = object_format(mongo_obj)  
-        except:
-            res_dict = {'error':'invalid ID'}                   
-        return(jsonify(res_dict))
 
     @app.route(f"/{ACCESS_KEY}/recommend/industry/<cityid>")
     def industry_rec(cityid):
         try:
             jsn = mongo.db.alldata.find_one({'_id':int(cityid)})
             modelli = get_industry(jsn)
-            res = industry_render(modelli, industry_scaler, industry_model, cityid)
+            res = model_render(modelli, industry_scaler, industry_model, cityid)
+            mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
+            res_dict = object_format(mongo_obj)  
+        except:
+            res_dict = {'error':'invalid ID'}                   
+        return(jsonify(res_dict))
+
+    @app.route(f"/{ACCESS_KEY}/recommend/culture/<cityid>")
+    def culture_rec(cityid):
+        try:
+            jsn = mongo.db.alldata.find_one({'_id':int(cityid)})
+            modelli = get_culture(jsn)
+            res = model_render(modelli, culture_scaler, culture_model, cityid)
+            mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
+            res_dict = object_format(mongo_obj)  
+        except:
+            res_dict = {'error':'invalid ID'}                   
+        return(jsonify(res_dict))
+
+    @app.route(f"/{ACCESS_KEY}/recommend/housing/<cityid>")
+    def housing_rec(cityid):
+        try:
+            jsn = mongo.db.alldata.find_one({'_id':int(cityid)})
+            modelli = get_housing(jsn)
+            res = model_render(modelli, housing_scaler, housing_model, cityid)
             mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
             res_dict = object_format(mongo_obj)  
         except:

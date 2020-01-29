@@ -152,6 +152,56 @@
                                 </div>
                                 <hr><!--//code-block-->
                             </div>
+                            <div id="industry"  class="section-block">
+                                <h3 class="block-title">Similar Cities by Industry Features</h3>
+                                <p>This end point takes a city ID and recommends similar cities based on industry and work life characteristics.</p>
+                                <div class="code-block">
+                                    <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/recommend/industry/&lt;CityID&gt;</code></pre>
+                                </div>
+                                <h4>Data returned:</h4>
+                                <div class="code-block">
+                                    <pre><code class="language-css">{
+"Denver, CO": {
+    "id": 1723, 
+    "Latitude": 39.7621, 
+    "Longitude": -104.8759, 
+    "State": "Colorado"
+}, 
+"Boston, MA": {
+    "id": 7522, 
+    "Latitude": 42.3188, 
+    "Longitude": -71.0846, 
+    "State": "Massachusetts"
+},  ...
+}</code></pre>
+                                </div>
+                                <hr><!--//code-block-->
+                            </div>
+                            <div id="culture"  class="section-block">
+                                <h3 class="block-title">Similar Cities by Cultural Features</h3>
+                                <p>This end point takes a city ID and recommends similar cities based on cultural and city demographic characteristics.</p>
+                                <div class="code-block">
+                                    <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/recommend/culture/&lt;CityID&gt;</code></pre>
+                                </div>
+                                <h4>Data returned:</h4>
+                                <div class="code-block">
+                                    <pre><code class="language-css">{
+"Oakland, CA": {
+    "id": 1633, 
+    "Latitude": 37.7903, 
+    "Longitude": -122.2165, 
+    "State": "California"
+}, 
+"Evanston, IL": {
+    "id": 3914, 
+    "Latitude": 42.0463, 
+    "Longitude": -87.6942, 
+    "State": "Illinois"
+}, ...
+}</code></pre>
+                                </div>
+                                <hr><!--//code-block-->
+                            </div>
 <!--//section-block-->
                             </section><!--//doc-section-->
 
@@ -559,6 +609,12 @@
                                                     <td>None</td>
                                                     <td align="center"></td>
                                                 </tr>
+                                                <tr>
+                                                    <th scope="row">weather</th>
+                                                    <td>Yearly average by month of temperature, min temperature, max temperature, snow, and precipitation.</td>
+                                                    <td><i>Many keys </i></td>
+                                                    <td align="center"></td>
+                                                </tr>                                                
                                             </tbody>
                                         </table>
                                     </div><!--//table-responsive-->
@@ -590,6 +646,8 @@
                                         <a class="nav-link scrollto" href="#step2">City Name Search</a>
                                         <a class="nav-link scrollto" href="#ipaddress">IP Address Search</a>
                                         <a class="nav-link scrollto" href="#housingr">City Suggester: Housing</a>
+                                        <a class="nav-link scrollto" href="#industry">City Suggester: Industry</a>
+                                        <a class="nav-link scrollto" href="#culture">City Suggester: Culture</a>
                                     </nav><!--//nav-->
 	                                <a class="nav-link scrollto" href="#datasection">Data Points</a>
                                   <a class="nav-link scrollto" href="#charts">Example Charts</a>

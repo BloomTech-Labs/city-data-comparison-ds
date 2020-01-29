@@ -4,7 +4,7 @@ import numpy as np
 
 
 
-def housing_model(li, nn):
+def housing_render(li, nn):
     feats_arry = np.array(li).reshape(1,-1)
     res_arry = nn.query(feats_arry, k=6)[1][0].tolist()
     return(res_arry[1:])
@@ -73,8 +73,25 @@ def get_industry(jsn):
     
     return(res)
 
+def get_culture(jsn):
+    get = jsn
+    age_dist = list(get['Age Distribution'].values())
+    p2010 = get['Population Growth']['2010']
+    p2018 = get['Population Growth']['2018']
+    if p2010 != 0 and p2018 != 0:
+        popgrow = round(((p2018 - p2010) / p2010) * 100, 2)
+    else:
+        popgrow = 0
+    diveristy = list(get['Ethnicity'].values())
+    education = list(get['Educational Attainment'].values())
+    birth = get['Recent Mothers']['Birth Rate']['Avg']
+    
+    
+    res = age_dist + [popgrow, p2018] + diveristy + education + [birth]
+    return(res)
 
-def industry_render(li, scale, nn, num):
+
+def model_render(li, scale, nn, num):
     feats_arry = np.array(li).reshape(1,-1)
     feats_arry_scale = scale.transform(feats_arry)
     res_arry = nn.query(feats_arry_scale, k=6)[1][0].tolist()
