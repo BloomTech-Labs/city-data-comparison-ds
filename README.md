@@ -64,7 +64,7 @@ Metrolytics provides statistics on 15,000 different cities in the United States 
 -   [Zillow Housing](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/zillowData_clean.ipynb)
 -   [Longitude & Latitude](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Get_Lat_Lng.ipynb)
 -   [Population Growth](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/PopulationGrowth.ipynb)
--   [Source 5](🚫add link to python notebook here)
+-   [Weather Data](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
 
 ### Python Notebooks
 
