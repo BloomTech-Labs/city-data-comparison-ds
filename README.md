@@ -29,7 +29,7 @@ You can find the project at [Citrics](https://master.d1td9ufw3xylcx.amplifyapp.c
 
 1️⃣ [Product Canvas](https://www.notion.so/City-Data-Comparison-bc94a2f56b05482e9c42a12748a0ed0a)
 
-Metrolytics provides statistics on 15,000 different cities in the United States that are available for viewing. These statistics include information about housing prices, employment, lifestyle and much more.
+Citrics provides statistics on 28,924 different cities in the United States that are available for viewing. This was created with a team of web developers and data engineers. These statistics include information about housing prices, employment, lifestyle and much more.
 
 
 1️⃣ [Deployed Front End](https://master.d1td9ufw3xylcx.amplifyapp.com/)
