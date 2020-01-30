@@ -87,17 +87,27 @@ Citrics provides statistics on 28,924 different cities in the United States that
 
 ### Python Notebooks
 
-🚫  Add to or delete python notebook links as needed for your project
+[Documation Notebook](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Citrics_Documentation.ipynb)
 
-[Python Notebook 1](🚫add link to python notebook here)
+#### Fixing City Names:
+- [Fixing City Names_1](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/fixnames.ipynb)
+- [Fixing City Names_2](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/City_Naming.ipynb)
 
-[Python Notebook 2](🚫add link to python notebook here)
+#### Features
+- [Longitude & Latitude](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Get_Lat_Lng.ipynb)
+- [Population Growth](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/PopulationGrowth.ipynb)
+- [Weather Data](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Weather_Data.ipynb)
 
-[Python Notebook 3](🚫add link to python notebook here)
+##### Housing Data
+- [Cleaning Zillow Data](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/zillowData_clean.ipynb)
+- [Price Checking](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/zillow_price_check.ipynb)
+- [Mapping Lat & Long to zillow](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/zillowzip.ipynb)
 
-### 3️⃣ How to connect to the web API
+#### Models (for suggesting similar cities):
 
-🚫 List directions on how to connect to the API here
+- [Housing KNN Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Housing_model.ipynb)
+- [Industry KNN Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/industry_knn_model.ipynb)
+- [Culture KNN Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/culture_knn_model.ipynb)
 
 ### 3️⃣ How to connect to the data API
 
