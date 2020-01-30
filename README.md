@@ -1,6 +1,6 @@
 # 1️⃣ Citrics
 
-You can find the project at [Citrics](https://master.d1td9ufw3xylcx.amplifyapp.com/).
+You can find the project [Here](https://master.d1td9ufw3xylcx.amplifyapp.com/).
 
 ## 5️⃣ Contributors
 
@@ -101,7 +101,7 @@ Citrics provides statistics on 28,924 different cities in the United States that
 
 ### 3️⃣ How to connect to the data API
 
-[You can find documentation for the API here](https://api.citrics.io/docs)
+You can find documentation for the API [here](https://api.citrics.io/docs)
 
 ## Contributing
 
