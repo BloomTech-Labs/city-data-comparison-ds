@@ -95,7 +95,7 @@ Citrics provides statistics on 28,924 different cities in the United States that
 - [Fixing City Names_1](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/fixnames.ipynb)
 - [Fixing City Names_2](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/City_Naming.ipynb)
 
-#### Features
+#### Different types of data and sources
 - [Longitude & Latitude](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Get_Lat_Lng.ipynb)
 - [Population Growth](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/PopulationGrowth.ipynb)
 - [Weather Data](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Weather_Data.ipynb)
