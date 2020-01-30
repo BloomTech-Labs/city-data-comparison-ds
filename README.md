@@ -47,7 +47,7 @@ Citrics provides statistics on 28,924 different cities in the United States that
 
 #### The following models are using a K-Nearest Neighbors algorithm from the Scikit-Learn Python Library
 
-### Housing Model: 
+### [Housing Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Housing_model.ipynb): 
 - Features & Metrics Used: 
 
  - Median Rent
@@ -57,7 +57,7 @@ Citrics provides statistics on 28,924 different cities in the United States that
  - Rent Pricing
  - Historical Property Value
 
-### Industry Model:
+### [Industry Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/industry_knn_model.ipynb):
 
 - Features & Metrics Used:
  - Industry Types
@@ -67,7 +67,7 @@ Citrics provides statistics on 28,924 different cities in the United States that
  - Retirement
  - Unemployment
  
-### Culture Model:
+### [Culture Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/culture_knn_model.ipynb):
 
 - Features & Metrics used:
  - Education
