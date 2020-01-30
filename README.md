@@ -45,10 +45,11 @@ Citrics provides statistics on 28,924 different cities in the United States that
 ### 2️⃣ Predictions
 
 
-##### The following models are using a K-Nearest Neighbors algorithm from the Scikit-Learn Python Library
+#### The following models are using a K-Nearest Neighbors algorithm from the Scikit-Learn Python Library
 
-Housing Model: 
--Features: 
+###Housing Model: 
+-Features & Metrics Used: 
+
  -Median Rent
  -Occupants per room
  -Housing by bedrooms
@@ -56,8 +57,9 @@ Housing Model:
  -Rent Pricing
  -Historical Property Value
 
-Industry Model:
--Features & Metrics Used
+###Industry Model:
+
+-Features & Metrics Used:
  -Industry Types
  -Health insurance
  -Salary
@@ -65,8 +67,9 @@ Industry Model:
  -Retirement
  -Unemployment
  
-Culture Model:
--Features & Metrics used
+###Culture Model:
+
+-Features & Metrics used:
  -Education
  -Language
  -Ethnicity
