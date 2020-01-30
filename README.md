@@ -20,8 +20,6 @@ You can find the project at [Citrics](https://master.d1td9ufw3xylcx.amplifyapp.c
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-🚫 more info on using badges [here](https://github.com/badges/shields)
-
 ## Project Overview
 
 
@@ -46,7 +44,34 @@ Citrics provides statistics on 28,924 different cities in the United States that
 
 ### 2️⃣ Predictions
 
-🚫 Describe your models here
+
+##### The following models are using a K-Nearest Neighbors algorithm from the Scikit-Learn Python Library
+
+Housing Model: 
+-Features: 
+ -Median Rent
+ -Occupants per room
+ -Housing by bedrooms
+ -Vacancy Rate
+ -Rent Pricing
+ -Historical Property Value
+
+Industry Model:
+-Features & Metrics Used
+ -Industry Types
+ -Health insurance
+ -Salary
+ -Commute & travel time
+ -Retirement
+ -Unemployment
+ 
+Culture Model:
+-Features & Metrics used
+ -Education
+ -Language
+ -Ethnicity
+ -Birth Rate
+ -Population
 
 ### 2️⃣ Explanatory Variables
 
