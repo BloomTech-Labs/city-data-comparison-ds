@@ -110,7 +110,7 @@ Citrics provides statistics on 28,924 different cities in the United States that
 
 ### 3️⃣ How to connect to the data API
 
-🚫 List directions on how to connect to the API here
+[You can find documentation for the API here](https://api.citrics.io/docs)
 
 ## Contributing
 
