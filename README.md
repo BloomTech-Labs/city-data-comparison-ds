@@ -85,6 +85,8 @@ Citrics provides statistics on 28,924 different cities in the United States that
 -   [Population Growth](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/PopulationGrowth.ipynb)
 -   [Weather Data](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
 
+[How we pushed our data to MongoDB](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/to_datebase.py)
+
 ### Python Notebooks
 
 [Documation Notebook](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Citrics_Documentation.ipynb)
@@ -117,7 +119,7 @@ You can find documentation for the API [here](https://api.citrics.io/docs)
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
-Please note we have a [code of conduct](./code_of_conduct.md.md). Please follow it in all your interactions with the project.
+Please note we have a [code of conduct](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/code_of_conduct.md). Please follow it in all your interactions with the project.
 
 ### Issue/Bug Request
 
