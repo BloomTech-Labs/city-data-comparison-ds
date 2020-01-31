@@ -3,11 +3,11 @@ from sklearn.neighbors import KDTree
 import numpy as np
 
 
-
 def housing_render(li, nn):
-    feats_arry = np.array(li).reshape(1,-1)
+    feats_arry = np.array(li).reshape(1, -1)
     res_arry = nn.query(feats_arry, k=6)[1][0].tolist()
     return(res_arry[1:])
+
 
 def get_housing(jsn):
     get = jsn
@@ -43,6 +43,7 @@ def object_format(obj):
         jsn[i['name_with_com']] = {'id':i['_id'], 'Latitude': i['Latitude'], 'Longitude': i['Longitude'], 'State': i['State']}
     return(jsn)
 
+
 def get_industry(jsn):
     get = jsn
     construction = get['Industry']['Construction']
@@ -70,8 +71,9 @@ def get_industry(jsn):
     com5 = get['Commuting to Work']['Works at home']
     time = get['Mean Travel Time']
     res = [construction, manu, wholesale, retail, trans, info, finance, science, education, art, other, admin, health, unempl, income] +  salary + [drivea, com2, com3, com4, com5, time]
-    
+
     return(res)
+
 
 def get_culture(jsn):
     get = jsn
@@ -85,14 +87,13 @@ def get_culture(jsn):
     diveristy = list(get['Ethnicity'].values())
     education = list(get['Educational Attainment'].values())
     birth = get['Recent Mothers']['Birth Rate']['Avg']
-    
-    
+
     res = age_dist + [popgrow, p2018] + diveristy + education + [birth]
     return(res)
 
 
 def model_render(li, scale, nn, num):
-    feats_arry = np.array(li).reshape(1,-1)
+    feats_arry = np.array(li).reshape(1, -1)
     feats_arry_scale = scale.transform(feats_arry)
     res_arry = nn.query(feats_arry_scale, k=6)[1][0].tolist()
     if int(num) in res_arry:

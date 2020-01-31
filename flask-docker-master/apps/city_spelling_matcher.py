@@ -1,9 +1,10 @@
 import difflib
 import json
 
+
 def data_loader():
     with open('apps/data/spellcheck/spell_check_opject2.json', 'r') as myfile:
-        data=myfile.read()
+        data = myfile.read()
         obj = json.loads(data)
     return(obj)
 
@@ -27,10 +28,11 @@ def check_spelling(data, words):
 
     else:
         if len(words.split()) <= 1:
-            res = {'No Data': f'Cannot find {words}, please include the Ctate name along with the City you are searching for.'}
+            res = {'No Data': f'Cannot find {words}, please include the State name along with the City you are searching for.'}
         else:
             res = {'No Data': f'Cannot find {words}, please check the spelling or search for another City.'}
     return(res)
+
 
 def force_id(data, words):
     jsn = {}
