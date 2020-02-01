@@ -103,9 +103,9 @@ code {
 }
 
 .btn-green:hover, .btn-green:focus, .btn-green:active, .btn-green.active, .btn-green.hover, a.btn-green:hover, a.btn-green:focus, a.btn-green:active, a.btn-green.active, a.btn-green.hover {
-  background: #63b971;
+  background: #63acb9;
   color: #fff !important;
-  border: 1px solid #63b971;
+  border: 1px solid #63acb9;
 }
 
 .body-green .btn-green, .body-green a.btn-green {
@@ -539,7 +539,7 @@ select {
 }
 
 .question .body-green {
-  color: #63b971;
+  color: #63acb9;
 }
 
 .body-blue .question {
@@ -1039,7 +1039,7 @@ select {
 }
 
 .body-green .promo-block {
-  background: #63b971;
+  background: #63acb9;
 }
 
 .body-blue .promo-block {
