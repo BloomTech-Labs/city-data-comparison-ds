@@ -1,6 +1,7 @@
 # 1️⃣ Citrics
 
-You can find the project [Here](https://master.d1td9ufw3xylcx.amplifyapp.com/).
+You can find the project [Here](https://citrics.io/).
+The API Docs for the DS app  can be found [Here](https://api.citrics.io/docs)
 
 ## 5️⃣ Contributors
 
@@ -18,27 +19,28 @@ You can find the project [Here](https://master.d1td9ufw3xylcx.amplifyapp.com/).
 
 1️⃣ [Product Canvas](https://www.notion.so/City-Data-Comparison-bc94a2f56b05482e9c42a12748a0ed0a)
 
-Citrics provides statistics on 28,924 different cities in the United States that are available for viewing. This was created with a team of web developers and data engineers. These statistics include information about housing prices, employment, lifestyle and much more.
+Citrics provides statistics on 28,924 different locations in the United States that are available for viewing. This was created with a team of web developers and data engineers. These statistics include information about housing prices, employment, lifestyle and much more.
 
 
-1️⃣ [Deployed Front End](https://master.d1td9ufw3xylcx.amplifyapp.com/)
+1️⃣ [Deployed Front End](https://citrics.io/)
 
 ### Tech Stack
 
 - Python
+- Flask
+- Docker
 - Jupyter Notebooks
-- Pandas Python Library
-- Plotly Python Library
 - Mongo DB
-- AWS
+- AWS Elastic Beanstalk
+- AWS PostreSQL
 
 
 ### 2️⃣ Predictions
 
 
-#### The following models are using a K-Nearest Neighbors algorithm from the Scikit-Learn Python Library
+#### The following models are using a K-Nearest Neighbors KD-Tree algorithm from the Scikit-Learn Python Library
 
-### [Housing Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Housing_model.ipynb): 
+### [Housing Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Model_Scripts/housing.py): 
 - Features & Metrics Used: 
 
  - Median Rent
@@ -47,8 +49,9 @@ Citrics provides statistics on 28,924 different cities in the United States that
  - Vacancy Rate
  - Rent Pricing
  - Historical Property Value
+ - Historical Property Value Growth by %
 
-### [Industry Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/industry_knn_model.ipynb):
+### [Industry Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Model_Scripts/industry.py):
 
 - Features & Metrics Used:
  - Industry Types
@@ -58,7 +61,7 @@ Citrics provides statistics on 28,924 different cities in the United States that
  - Retirement
  - Unemployment
  
-### [Culture Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/culture_knn_model.ipynb):
+### [Culture Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Model_Scripts/culture.py):
 
 - Features & Metrics used:
  - Education
@@ -66,6 +69,8 @@ Citrics provides statistics on 28,924 different cities in the United States that
  - Ethnicity
  - Birth Rate
  - Population
+ 
+#### Note: AWS EB has a hard time runing Numpy and Scipy. These libraries power Sklearn. Also, the joblib library had a hard time running models that were trained on different operating systems. Once we found models that worked, we exported the code to a python script and ran it on a Linux based machines runing python 3.6. We then used Docker to contain and ship our flask app. These steps allowed us to seamlessly deploy predictive models.
 
 ### 2️⃣ Explanatory Variables
 
@@ -115,45 +120,4 @@ Citrics provides statistics on 28,924 different cities in the United States that
 
 You can find documentation for the API [here](https://api.citrics.io/docs)
 
-## Contributing
-
-When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
-
-Please note we have a [code of conduct](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/code_of_conduct.md). Please follow it in all your interactions with the project.
-
-### Issue/Bug Request
-
- **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
- - Check first to see if your issue has already been reported.
- - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
- - Create a live example of the problem.
- - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes,  where you believe the issue is originating from, and any potential solutions you have considered.
-
-### Feature Requests
-
-We would love to hear from you about new features which would improve this app and further the aims of our project. Please provide as much detail and information as possible to show us why you think your new feature should be implemented.
-
-### Pull Requests
-
-If you have developed a patch, bug fix, or new feature that would improve this app, please submit a pull request. It is best to communicate your ideas with the developers first before investing a great deal of time into a pull request to ensure that it will mesh smoothly with the project.
-
-Remember that this project is licensed under the MIT license, and by submitting a pull request, you agree that your work will be, too.
-
-#### Pull Request Guidelines
-
-- Ensure any install or build dependencies are removed before the end of the layer when doing a build.
-- Update the README.md with details of changes to the interface, including new plist variables, exposed ports, useful file locations and container parameters.
-- Ensure that your code conforms to our existing code conventions and test coverage.
-- Include the relevant issue number, if applicable.
-- You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
-
-### Attribution
-
-These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
-
-## Documentation
-
-See [Backend Documentation](_link to your backend readme here_) for details on the backend of our project.
-
-See [Front End Documentation](_link to your front end readme here_) for details on the front end of our project.
 
