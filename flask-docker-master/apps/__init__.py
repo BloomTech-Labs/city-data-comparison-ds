@@ -25,7 +25,6 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = config('SQLALCHEMY_DATABASE_URI')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db = SQLAlchemy(app)
-    housing_nn = joblib.load('apps/models/housing/housing.joblib')
     housing_scaler = joblib.load('apps/models/housing/housing_scaler.joblib')
     housing_model = joblib.load('apps/models/housing/housing_model.joblib')
     industry_scaler = joblib.load(

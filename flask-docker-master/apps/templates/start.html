@@ -84,7 +84,7 @@
                                     <h3 class="block-title">City Data by ID</h3>
                                     <p>The City Data by ID endpoint returns <a  href="#datasection">all city data</a> based on the Citrics unique ID. </p>
                                     <div class="code-block">
-                                        <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/citydata/&lt;City_ID&gt;</code></pre>
+                                        <pre><code class="language-git">https://api.citrics/&lt;API_KEY&gt;/citydata/&lt;City_ID&gt;</code></pre>
                                     </div>
                                     <h4>Data returned:</h4>
                                     <div class="code-block">
@@ -96,7 +96,7 @@
                                     <h3 class="block-title">City Name Search (for misspelled queries)</h3>
                                     <p>This endpoint receives text and matches the text to similarly spelled cities. The main purpose of this endpoint is to obtain a city ID if a user spells the city wrong. This endpoint returns at most five similarly spelled cities along with the Citrics ID which can be used for <a  href="#step11">citydata</a> endpoint. </p>
                                     <div class="code-block">
-                                        <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/matchcity/&lt;City_name_and_State_Name&gt;</code></pre>
+                                        <pre><code class="language-git">https://api.citrics/&lt;API_KEY&gt;/matchcity/&lt;City_name_and_State_Name&gt;</code></pre>
                                     </div>
                                     <h4>Data returned:</h4>
                                     <div class="code-block">
@@ -119,7 +119,7 @@
                                 <p>The IP Address City Data by ID endpoint returns <a  href="#datasection">all city data</a> based on a users IP address.</p>
                                 <i>Note: This endpoint only accepts IPv4 addresses. Any unknown IP address will default to Seattle, WA.</i>
                                 <div class="code-block">
-                                    <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/ip_to_city/&lt;IP_Address&gt;</code></pre>
+                                    <pre><code class="language-git">https://api.citrics/&lt;API_KEY&gt;/ip_to_city/&lt;IP_Address&gt;</code></pre>
                                 </div>
                                 <h4>Data returned:</h4>
                                 <div class="code-block">
@@ -131,7 +131,7 @@
                                 <h3 class="block-title">Similar Cities by Housing Features</h3>
                                 <p>This end point takes a city ID and recommends similar cities based on housing characteristics.</p>
                                 <div class="code-block">
-                                    <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/recommend/housing/&lt;CityID&gt;</code></pre>
+                                    <pre><code class="language-git">https://api.citrics/&lt;API_KEY&gt;/recommend/housing/&lt;CityID&gt;</code></pre>
                                 </div>
                                 <h4>Data returned:</h4>
                                 <div class="code-block">
@@ -156,7 +156,7 @@
                                 <h3 class="block-title">Similar Cities by Industry Features</h3>
                                 <p>This end point takes a city ID and recommends similar cities based on industry and work life characteristics.</p>
                                 <div class="code-block">
-                                    <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/recommend/industry/&lt;CityID&gt;</code></pre>
+                                    <pre><code class="language-git">https://api.citrics/&lt;API_KEY&gt;/recommend/industry/&lt;CityID&gt;</code></pre>
                                 </div>
                                 <h4>Data returned:</h4>
                                 <div class="code-block">
@@ -181,7 +181,7 @@
                                 <h3 class="block-title">Similar Cities by Cultural Features</h3>
                                 <p>This end point takes a city ID and recommends similar cities based on cultural and city demographic characteristics.</p>
                                 <div class="code-block">
-                                    <pre><code class="language-git">http://api.citrics/&lt;API_KEY&gt;/recommend/culture/&lt;CityID&gt;</code></pre>
+                                    <pre><code class="language-git">https://api.citrics/&lt;API_KEY&gt;/recommend/culture/&lt;CityID&gt;</code></pre>
                                 </div>
                                 <h4>Data returned:</h4>
                                 <div class="code-block">
@@ -295,7 +295,7 @@
                                                     <th scope="row">Age Distribution</th>
                                                     <td>Age Distribution for City population.</td>
                                                     <td><i>13 keys grouping ages of the population</i></td>
-                                                    <td></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Median Age</th>
@@ -433,7 +433,7 @@
                                                     <th scope="row">Median Household Income</th>
                                                     <td>Median Household Income of all households in a City.</td>
                                                     <td>None</td>
-                                                    <td></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Mean Household Income</th>
@@ -451,7 +451,7 @@
                                                     <th scope="row">Retirement Avg</th>
                                                     <td>Avgerage Retirement savings for all households by type of Retirement savings.</td>
                                                     <td>With Social Security, With retirement income, With Supplemental Security Income</td>
-                                                    <td></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Public Assistance Percent</th>
@@ -499,7 +499,7 @@
                                                     <th scope="row">Vacancy Rate</th>
                                                     <td>Home owner vacancy rate vs rental vacancy rate.</td>
                                                     <td>Homeowner vacancy rate, Rental vacancy rate</td>
-                                                    <td></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Units in Structure</th>
@@ -541,7 +541,7 @@
                                                     <th scope="row">Selected Monthly Owner Costs with Mortgage</th>
                                                     <td>Selected Monthly Owner Costs (SMOC) with Mortgage. This is the sum of payment for mortgages, real estate taxes, various insurances, utilities, fuels, mobile home costs, and condominium fees</td>
                                                     <td><i>Many keys realated to cost in USD.</i></td>
-                                                    <td></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Median Selected Monthly Owner Costs with Mortgage</th>
@@ -595,25 +595,25 @@
                                                     <th scope="row">Walk Score</th>
                                                     <td>walkability score provided by walkscore.com.</td>
                                                     <td>None</td>
-                                                    <td align="center"></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Bike Score</th>
                                                     <td>Bikeability score provided by walkscore.com.</td>
                                                     <td>None</td>
-                                                    <td align="center"></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Transit Score</th>
                                                     <td>Transit score provided by walkscore.com.</td>
                                                     <td>None</td>
-                                                    <td align="center"></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">weather</th>
                                                     <td>Yearly average by month of temperature, min temperature, max temperature, snow, and precipitation.</td>
                                                     <td><i>Many keys </i></td>
-                                                    <td align="center"></td>
+                                                    <td align="center"><i class="fas fa-check-circle"></i></td>
                                                 </tr>                                                
                                             </tbody>
                                         </table>
@@ -670,7 +670,7 @@
     <footer id="footer" class="footer text-center">
         <div class="container">
 
-            <small class="copyright"><a href="http://citrics.io" target="_blank">Citrics</a> 2020</small>
+            <small class="copyright"><a href="https://citrics.io" target="_blank">Citrics</a> 2020</small>
 
         </div><!--//container-->
     </footer><!--//footer-->
