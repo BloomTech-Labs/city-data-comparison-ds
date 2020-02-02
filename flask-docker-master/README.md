@@ -1,10 +1,4 @@
 # flask-docker
-Fast and easy way to ship Python web apps, anywhere. Be shipping 🚀
-
-Building apps using Python is fun.
-But shipping them, not so much (unlike PHP & NodeJS, which are supported almost everywhere)
-However, Docker makes it really easy, here is how:
-
 - `Flask`: Web app framework. You could take any other WSGI framework
 - `Gunicorn`: Production grade App server for Python
 - `Whitenoise`: Serving static files (js, css, images etc)
@@ -13,9 +7,11 @@ However, Docker makes it really easy, here is how:
 
 ## Ship
 
-In few steps, you can run on local, your colleague's local, AWS, Azure, anywhere.
+In few steps, you can run on local, your cohort's local, AWS, Azure, anywhere.
 
 Docker Container -> Container Registry -> Cloud
+
+Make sure you set your ENV variable in the Docker file.
 
 First build container:
 * `docker build . -t flask-docker:latest`
