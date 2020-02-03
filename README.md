@@ -121,7 +121,7 @@ Citrics provides statistics on 28,924 different locations in the United States t
 - [Industry KNN Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/industry_knn_model.ipynb)
 - [Culture KNN Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/culture_knn_model.ipynb)
 
-### 3️⃣ How to connect to the data API
+### How to connect to the data API
 
 You can find documentation for the API [here](https://api.citrics.io/docs)
 
