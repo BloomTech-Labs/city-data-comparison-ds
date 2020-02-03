@@ -1,4 +1,4 @@
-# 1️⃣ Citrics
+#  Citrics
 
 You can find the project [Here](https://citrics.io/).
 The API Docs for the DS app  can be found [Here](https://api.citrics.io/docs)
@@ -8,7 +8,7 @@ The API Docs for the DS app  can be found [Here](https://api.citrics.io/docs)
 
 #### Deep dive into cleaning the data [Here](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Citrics_Documentation.ipynb).
 
-## 5️⃣ Contributors
+## Contributors
 
 
 |                                    [Scott Maxwell](https://github.com/scottwmwork)                                   |                                          [Matthew Sessions](https://github.com/matthew-sessions)                                         |                                 [Luke Townsend](https://github.com/ldtownsend)                                 |
@@ -20,14 +20,14 @@ The API Docs for the DS app  can be found [Here](https://api.citrics.io/docs)
 ## Project Overview
 
 
-1️⃣ [Trello Board](https://trello.com/b/VXbaBrSL/labs-19-citydatacomparison)
+ [Trello Board](https://trello.com/b/VXbaBrSL/labs-19-citydatacomparison)
 
-1️⃣ [Product Canvas](https://www.notion.so/City-Data-Comparison-bc94a2f56b05482e9c42a12748a0ed0a)
+ [Product Canvas](https://www.notion.so/City-Data-Comparison-bc94a2f56b05482e9c42a12748a0ed0a)
 
 Citrics provides statistics on 28,924 different locations in the United States that are available for viewing. This was created with a team of web developers and data engineers. These statistics include information about housing prices, employment, lifestyle and much more.
 
 
-1️⃣ [Deployed Front End](https://citrics.io/)
+[Deployed Front End](https://citrics.io/)
 
 ### Tech Stack
 
@@ -40,7 +40,7 @@ Citrics provides statistics on 28,924 different locations in the United States t
 - AWS PostreSQL
 
 
-### 2️⃣ Predictions
+### Predictions
 
 
 #### The following models are using a K-Nearest Neighbors KD-Tree algorithm from the Scikit-Learn Python Library
@@ -77,7 +77,7 @@ Citrics provides statistics on 28,924 different locations in the United States t
  
 #### Note: AWS EB has a hard time runing Numpy and Scipy. These libraries power Sklearn. Also, the joblib library had a hard time running models that were trained on different operating systems. Once we found models that worked, we exported the code to a python script and ran it on a Linux based machines runing python 3.6. We then used Docker to contain and ship our flask app. These steps allowed us to seamlessly deploy predictive models.
 
-### 2️⃣ Explanatory Variables
+### Explanatory Variables
 
 -   Explanatory Variable 1
 -   Explanatory Variable 2
