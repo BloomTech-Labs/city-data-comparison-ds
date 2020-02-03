@@ -46,7 +46,7 @@ Citrics provides statistics on 28,924 different locations in the United States t
 #### The following models are using a K-Nearest Neighbors KD-Tree algorithm from the Scikit-Learn Python Library
 
 ### [Housing Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Model_Scripts/housing.py): 
-- Features & Metrics Used: 
+Features & Metrics Used: 
 
  - Median Rent
  - Occupants per room
@@ -58,7 +58,7 @@ Citrics provides statistics on 28,924 different locations in the United States t
 
 ### [Industry Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Model_Scripts/industry.py):
 
-- Features & Metrics Used:
+Features & Metrics Used:
  - Industry Types
  - Health insurance
  - Salary
@@ -68,7 +68,7 @@ Citrics provides statistics on 28,924 different locations in the United States t
  
 ### [Culture Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Model_Scripts/culture.py):
 
-- Features & Metrics used:
+Features & Metrics used:
  - Education
  - Language
  - Ethnicity
