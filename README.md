@@ -37,7 +37,7 @@ Citrics provides statistics on 28,924 different locations in the United States t
 - Jupyter Notebooks
 - Mongo DB
 - AWS Elastic Beanstalk
-- AWS PostreSQL
+- AWS PostgreSQL
 
 
 ### Predictions
