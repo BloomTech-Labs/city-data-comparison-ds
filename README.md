@@ -8,6 +8,8 @@ The API Docs for the DS app  can be found [Here](https://api.citrics.io/docs)
 
 #### Deep dive into cleaning the data [Here](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Citrics_Documentation.ipynb).
 
+#### Datasets used [Here](https://drive.google.com/open?id=1MdnKnqFQRhMPvxeloIAPuhl-qwhhCSbi)
+
 ## Contributors
 
 
