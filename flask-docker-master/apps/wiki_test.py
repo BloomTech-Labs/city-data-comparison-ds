@@ -20,14 +20,14 @@ def city2page(name):
     with open(path, 'rb') as fp:
         return pickle.load(fp)
 
-for i in range(0, len(jdf.ID)):
+for i in range(9500, len(jdf.ID)):
     try:
         ws = city2page(jdf.index[i]).summary
         client.SingleCity.wikidata.insert_one({"_id":jdf.ID[i],
                                                 "city_st":jdf.index[i],
                                                 "wiki_sum":ws
                                                })
-        print(i + 1, jdf.index[i],'inserted')
+        print(i, jdf.index[i],'inserted')
     except:
         print(jdf.index[i], 'Not found/working...')
 #keyboard interrupts made us miss
