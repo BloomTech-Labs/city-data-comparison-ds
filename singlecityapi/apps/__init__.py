@@ -14,6 +14,7 @@ def create_app():
     mongo = PyMongo(app)
 
     DB = mongo.db.client.get_database('SingleCity')
+    CORS(app)
 
     @app.route(f"/")
     def home():
