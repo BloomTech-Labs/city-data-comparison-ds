@@ -1,4 +1,3 @@
-from __future__ import print_function # Python 2/3 compatibility
 from flask import Flask, request, render_template, redirect, url_for
 from decouple import config
 from flask_pymongo import PyMongo
@@ -12,17 +11,6 @@ from flask import jsonify
 from flask_sqlalchemy import SQLAlchemy
 import netaddr
 from sklearn.neighbors import KDTree
-import pandas as pd
-import boto3
-import decimal
-import os, pickle, json, random
-from pymongo import MongoClient
-import boto3
-
-MONGO_URI = config('MONGO_URI')
-MONGO_URI2 = config('MONGO_URI2')
-client = MongoClient(MONGO_URI)
-client2 = MongoClient(MONGO_URI2)
 
 
 def create_app():
@@ -82,17 +70,7 @@ def create_app():
 
     @app.route(f"/{ACCESS_KEY}/citydata/<num>")
     def allcitydata(num):
-        doc = mongo.db.table_name.find_one({'_id': int(num)})
-        return jsonify(doc)
-
-    @app.route(f"/{ACCESS_KEY}/singlecityWiki/<num>")
-    def singlecityWiki(num):
-        doc = client2.SingleCity.WikiReal.find_one({'_id': int(num)})
-        return jsonify(doc)
-
-    @app.route(f"/{ACCESS_KEY}/singlecityYelp/<num>")
-    def singlecityYelp(num):
-        doc = client2.SingleCity.yelp_data.find_one({'_id': str(num)})
+        doc = mongo.db.alldata.find_one({'_id': int(num)})
         return jsonify(doc)
 
     @app.route(f"/{ACCESS_KEY}/matchcity/<words>")
@@ -123,17 +101,17 @@ def create_app():
                 city = 'Seattle'
                 state = 'WA'
         city_id = force_id(data, f"{city} {state}")
-        doc = mongo.db.table_name.find_one({'_id': int(city_id)})
+        doc = mongo.db.alldata.find_one({'_id': int(city_id)})
         return jsonify(doc)
 
     @app.route(f"/{ACCESS_KEY}/recommend/industry/<cityid>")
     def industry_rec(cityid):
         try:
-            jsn = mongo.db.table_name.find_one({'_id': int(cityid)})
+            jsn = mongo.db.alldata.find_one({'_id': int(cityid)})
             modelli = get_industry(jsn)
             res = model_render(
                 modelli, industry_scaler, industry_model, cityid)
-            mongo_obj = mongo.db.table_name.find({"_id": {"$in": res}})
+            mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
             res_dict = object_format(mongo_obj)
         except:
             res_dict = {'error': 'invalid ID'}
@@ -142,10 +120,10 @@ def create_app():
     @app.route(f"/{ACCESS_KEY}/recommend/culture/<cityid>")
     def culture_rec(cityid):
         try:
-            jsn = mongo.db.table_name.find_one({'_id': int(cityid)})
+            jsn = mongo.db.alldata.find_one({'_id': int(cityid)})
             modelli = get_culture(jsn)
             res = model_render(modelli, culture_scaler, culture_model, cityid)
-            mongo_obj = mongo.db.table_name.find({"_id": {"$in": res}})
+            mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
             res_dict = object_format(mongo_obj)
         except:
             res_dict = {'error': 'invalid ID'}
@@ -154,26 +132,13 @@ def create_app():
     @app.route(f"/{ACCESS_KEY}/recommend/housing/<cityid>")
     def housing_rec(cityid):
         try:
-            jsn = mongo.db.table_name.find_one({'_id': int(cityid)})
+            jsn = mongo.db.alldata.find_one({'_id': int(cityid)})
             modelli = get_housing(jsn)
             res = model_render(modelli, housing_scaler, housing_model, cityid)
-            mongo_obj = mongo.db.table_name.find({"_id": {"$in": res}})
+            mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
             res_dict = object_format(mongo_obj)
         except:
             res_dict = {'error': 'invalid ID'}
         return(jsonify(res_dict))
-
-    @app.route(f"/{ACCESS_KEY}/single-city/<cityid>")
-    def single_city(cityid):
-        ddb = boto3.resource('dynamodb', region_name='us-east-2')
-        tbl = ddb.Table('sc_data')
-        response = tbl.get_item(
-                Key={
-                    '_id': 7,
-                    'city_st':'New Hope, AL'
-                    })
-
-        item = response['Item']
-        return(item['city_st'])
 
     return app
