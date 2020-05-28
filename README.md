@@ -13,7 +13,7 @@ The API Docs for the DS app  can be found [Here](https://api.citrics.io/docs)
 ## Contributors
 
 
-|                                    [Scott Maxwell](https://github.com/scottwmwork)                                   |                                          [Matthew Sessions](https://github.com/matthew-sessions)                                         |                                 [Luke Townsend](https://github.com/ldtownsend)                                 |
+|                                    [Scott Maxwell](https://github.com/scottwmwork)                                   |                                          [Matthew Sessions](https://github.com/matthew-sessions)                                         |                                 [Luke Townsend](https://github.com/ldtownsend)                                 |[jimmy 'Zeb' Smith](https://www.github.com/zebfred)| [Eric Ramon](https://github.com/nephylum)| [Chris Shields](https://github.com/cshields143)| [Steven Reiss](https://github.com/steve122192)| [Stephanie Miller](https://github.com/shmilyface)| [Amy NLe](https://github.com/hyamynl619)| [Robert Tom](https://github.com/RCTom168)
 |:--------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------:|
 | [<img src="https://avatars0.githubusercontent.com/u/33496996?s=400&u=454aad7eb839b42caa4cfca9357bae07c7a3325c&v=4" width = "200" />](https://github.com/) |              [<img src="https://avatars1.githubusercontent.com/u/53715422?s=400&v=4" width = "200" />](https://github.com/)              | [<img src="https://avatars1.githubusercontent.com/u/53023268?s=400&v=4" width = "200" />](https://github.com/) |
 |                     [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/scottwmwork)                    |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/matthew-sessions)                          |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/ldtownsend)            |
@@ -26,7 +26,7 @@ The API Docs for the DS app  can be found [Here](https://api.citrics.io/docs)
 
  [Product Canvas](https://www.notion.so/City-Data-Comparison-bc94a2f56b05482e9c42a12748a0ed0a)
 
-Citrics provides statistics on 28,924 different locations in the United States that are available for viewing. This was created with a team of web developers and data engineers. These statistics include information about housing prices, employment, lifestyle and much more.
+Citrics provides statistics on 28,925 different locations in the United States that are available for viewing. This was created with a team of web developers and data engineers. These statistics include information about housing prices, employment, industry, lifestyle and much more.
 
 
 [Deployed Front End](https://citrics.io/)
@@ -76,6 +76,35 @@ Features & Metrics used:
  - Ethnicity
  - Birth Rate
  - Population
+ - 
+ 
+### [reverse user](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Model_Scripts/housing.py): 
+Features & Metrics used:
+ - Education
+ - Language
+ - Ethnicity
+ - Birth Rate
+ - Population
+ - 
+
+### [Time series-housing](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Model_Scripts/housing.py): 
+Features & Metrics used:
+ - Education
+ - Language
+ - Ethnicity
+ - Birth Rate
+ - Population
+ - 
+
+### [Time series-Industry](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Model_Scripts/housing.py): 
+Features & Metrics used:
+ - Education
+ - Language
+ - Ethnicity
+ - Birth Rate
+ - Population
+ - 
+ 
  
 #### Note: AWS EB has a hard time runing Numpy and Scipy. These libraries power Sklearn. Also, the joblib library had a hard time running models that were trained on different operating systems. Once we found models that worked, we exported the code to a python script and ran it on a Linux based machines runing python 3.6. We then used Docker to contain and ship our flask app. These steps allowed us to seamlessly deploy predictive models.
 
@@ -89,8 +118,12 @@ Features & Metrics used:
 -   [Longitude & Latitude](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Get_Lat_Lng.ipynb)
 -   [Population Growth](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/PopulationGrowth.ipynb)
 -   [Weather Data](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
+-   burough of labors and statistics
+-   
 
 [How we pushed our data to MongoDB](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/to_datebase.py)
+
+
 
 ### Python Notebooks
 
@@ -115,9 +148,15 @@ Features & Metrics used:
 - [Housing KNN Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Housing_model.ipynb)
 - [Industry KNN Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/industry_knn_model.ipynb)
 - [Culture KNN Model](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/culture_knn_model.ipynb)
+#### Models (Time series):
+
+- [Housing forcasting](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/Housing_model.ipynb)
+- [Industry forcasting](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/industry_knn_model.ipynb)
+
+
+#### Model (user's preference):
+-[KNN unclassified]((https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Notebooks/industry_knn_model.ipynb)
 
 ### How to connect to the data API
 
 You can find documentation for the API [here](https://api.citrics.io/docs)
-
-
