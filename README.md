@@ -85,7 +85,7 @@ Features & Metrics used:
  - Ethnicity
  - Birth Rate
  - Population
- - 
+ 
  
 ### [Reverse User](https://github.com/Lambda-School-Labs/city-data-comparison-ds/blob/master/Model_Scripts/housing.py): 
 _A recommendation questionnaire that supplies the user with a recommended city_
